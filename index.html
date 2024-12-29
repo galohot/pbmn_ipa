@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kemlu Dashboard - Ministry of Foreign Affairs Performance Monitoring System">
+    <meta name="theme-color" content="#3C59A7">
+    <title>DASHBOARD IPA SATKER BY BUM</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1YJ5QUeb-ekUYZbXIK_WuBWNi-RvhC40o" type="image/png">
+    
+    <!-- Core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --kemenlu-navy-500: #3C59A7;
+            --kemenlu-navy-600: #304786;
+            --kemenlu-navy-700: #243665;
+            --kemenlu-green-500: #10B981;
+            --kemenlu-green-600: #059669;
+            --kemenlu-green-700: #047857;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .btn-kemenlu {
+            background-color: var(--kemenlu-navy-500);
+            color: #ffffff;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease-in-out;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-kemenlu:hover {
+            background-color: var(--kemenlu-navy-600);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-kemenlu:active {
+            background-color: var(--kemenlu-navy-700);
+            transform: translateY(0);
+        }
+
+        .btn-download {
+            background-color: var(--kemenlu-green-500);
+            color: #ffffff;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            transition: all 0.2s ease-in-out;
+            border: 1px solid transparent;
+        }
+
+        .btn-download:hover {
+            background-color: var(--kemenlu-green-600);
+            transform: translateY(-1px);
+        }
+
+        .btn-download:active {
+            background-color: var(--kemenlu-green-700);
+            transform: translateY(0);
+        }
+
+        .card-kemenlu {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05),
+                        0 8px 10px -6px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card-kemenlu:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08),
+                        0 10px 20px -8px rgba(0, 0, 0, 0.05);
+        }
+
+        .dropdown-container {
+            position: relative;
+            width: 100%;
+            max-width: 24rem;
+        }
+
+        .dropdown-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            background-color: #ffffff;
+        }
+
+        .dropdown-input:focus {
+            outline: none;
+            border-color: var(--kemenlu-navy-500);
+            box-shadow: 0 0 0 3px rgba(60, 89, 167, 0.1);
+        }
+
+        .dropdown-list {
+            position: absolute;
+            top: calc(100% + 0.25rem);
+            left: 0;
+            right: 0;
+            max-height: 15rem;
+            overflow-y: auto;
+            background-color: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            z-index: 50;
+        }
+
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #F3F4F6;
+            color: var(--kemenlu-navy-500);
+        }
+
+        /* Custom Scrollbar */
+        .custom-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #CBD5E1 #F1F5F9;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F1F5F9;
+            border-radius: 3px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #CBD5E1;
+            border-radius: 3px;
+            border: 2px solid #F1F5F9;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #94A3B8;
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            border: 0.25rem solid var(--kemenlu-navy-500);
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto py-4 px-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="https://lh3.googleusercontent.com/d/1NY5Ncxw9q2zWS5OH2QAMVbkzKDJT4wl0" 
+                         alt="Kementerian Luar Negeri Logo" 
+                         class="h-12 w-auto"
+                         loading="eager">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">IPA SATKER 2025</h1>
+                        <p class="text-sm text-gray-500">By Bagian PBMN, Biro Umum, KEMLU</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-8 px-6">
+        <div id="app">
+            <!-- Loading State -->
+            <div v-if="loading" class="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
+                <div class="loading-spinner"></div>
+                <p class="text-gray-600 font-medium">Loading dashboard data...</p>
+            </div>
+
+            <!-- Error State -->
+            <div v-if="error" class="max-w-lg mx-auto mt-8">
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-red-800">Error Loading Data</h3>
+                            <p class="mt-1 text-red-700">{{ error }}</p>
+                            <button 
+                                @click="fetchData" 
+                                class="mt-4 inline-flex items-center space-x-2 text-red-600 hover:text-red-500 font-medium"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                <span>Try Again</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div v-if="!loading && !error" class="space-y-8">
+                <!-- Search and Filter Section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="col-span-1 md:col-span-2 lg:col-span-3">
+                        <label for="perwakilan" class="block text-sm font-medium text-gray-700 mb-2">
+                            Filter by Nama Perwakilan
+                        </label>
+                        <div class="dropdown-container">
+                            <input
+                                type="text"
+                                id="perwakilan"
+                                v-model="searchQuery"
+                                @focus="showDropdown = true"
+                                @blur="handleBlur"
+                                @input="handleSearch"
+                                placeholder="Search Perwakilan..."
+                                class="dropdown-input"
+                            />
+                            <div 
+                                v-show="showDropdown" 
+                                class="dropdown-list custom-scrollbar"
+                                @mousedown.prevent
+                            >
+                                <template v-if="filteredPerwakilanList.length">
+                                    <div
+                                        v-for="perwakilan in filteredPerwakilanList"
+                                        :key="perwakilan"
+                                        @mousedown="selectPerwakilan(perwakilan)"
+                                        class="dropdown-item"
+                                    >
+                                        {{ perwakilan }}
+                                    </div>
+                                </template>
+                                <div v-else class="p-4 text-gray-500 text-center">
+                                    No results found
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Statistics Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- Rata-rata Total Kemlu Card -->
+                    <div class="card-kemenlu">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-lg font-medium text-gray-700">Rata-rata Total Kemlu</h2>
+                                <p class="text-sm text-gray-500 mt-1">Overall average performance score</p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-4xl font-bold text-blue-700">{{ rataTotalKemlu.toFixed(2) }}</p>
+                            <div class="flex items-center mt-2">
+                                <span class="text-sm" :class="rataTotalKemlu >= 3.2 ? 'text-green-600' : 'text-yellow-600'">
+                                    {{ rataTotalKemlu >= 3.2 ? 'Excellent' : 'Needs Improvement' }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rata-rata Perwakilan Card -->
+                    <div v-if="selectedPerwakilan" class="card-kemenlu">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-lg font-medium text-gray-700">
+                                    Rata-rata {{ selectedPerwakilan }}
+                                </h2>
+                                <p class="text-sm text-gray-500 mt-1">Selected representative's average score</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-4xl font-bold text-green-600">{{ rataPerwakilan.toFixed(2) }}</p>
+                            <div class="flex items-center mt-2">
+                                <span 
+                                    class="text-sm"
+                                    :class="rataPerwakilan >= rataTotalKemlu ? 'text-green-600' : 'text-yellow-600'"
+                                >
+                                    {{ rataPerwakilan >= rataTotalKemlu ? 'Above Average' : 'Below Average' }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="card-kemenlu overflow-hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-medium text-gray-700">Performance Details</h2>
+                        <div class="flex items-center space-x-2">
+                            <button 
+                                class="btn-kemenlu text-sm py-1"
+                                @click="exportToCSV"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Export Data
+                            </button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th 
+                                        @click="sortTable('nama_parameter')" 
+                                        class="group px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                    >
+                                        <div class="flex items-center space-x-1">
+                                            <span>Parameter Name</span>
+                                            <span class="text-gray-400 group-hover:text-gray-500">
+                                                <svg v-if="sortKey === 'nama_parameter'" 
+                                                     :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                     class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th 
+                                        @click="sortTable('rata_kemlu')" 
+                                        class="group px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                    >
+                                        <div class="flex items-center space-x-1">
+                                            <span>Kemlu Average</span>
+                                            <span class="text-gray-400 group-hover:text-gray-500">
+                                                <svg v-if="sortKey === 'rata_kemlu'" 
+                                                     :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                     class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th v-if="selectedPerwakilan" 
+                                        @click="sortTable('rata_perwakilan')" 
+                                        class="group px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                                    >
+                                        <div class="flex items-center space-x-1">
+                                            <span>{{ selectedPerwakilan }} Average</span>
+                                            <span class="text-gray-400 group-hover:text-gray-500">
+                                                <svg v-if="sortKey === 'rata_perwakilan'" 
+                                                     :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                     class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th v-if="selectedPerwakilan" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Supporting Documents
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr v-for="item in sortedData" 
+                                    :key="item.nama_parameter" 
+                                    class="hover:bg-gray-50 transition-colors duration-150"
+                                >
+                                    <td class="px-6 py-4 whitespace-normal">
+                                        <div class="text-sm text-gray-900">{{ item.nama_parameter }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="text-sm font-medium" 
+                                                 :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'text-green-600' : 'text-yellow-600'"
+                                            >
+                                                {{ getAverageKemlu(item.nama_parameter).toFixed(2) }}
+                                            </div>
+                                            <div class="ml-2 w-16 h-1.5 rounded-full bg-gray-200">
+                                                <div class="h-full rounded-full transition-all duration-300"
+                                                     :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'bg-green-500' : 'bg-yellow-500'"
+                                                     :style="{ width: (getAverageKemlu(item.nama_parameter) / 4 * 100) + '%' }"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td v-if="selectedPerwakilan" class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="text-sm font-medium" 
+                                                 :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'text-green-600' : 'text-yellow-600'"
+                                            >
+                                                {{ getAveragePerwakilan(item.nama_parameter).toFixed(2) }}
+                                            </div>
+                                            <div class="ml-2 w-16 h-1.5 rounded-full bg-gray-200">
+                                                <div class="h-full rounded-full transition-all duration-300"
+                                                     :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'bg-green-500' : 'bg-yellow-500'"
+                                                     :style="{ width: (getAveragePerwakilan(item.nama_parameter) / 4 * 100) + '%' }"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td v-if="selectedPerwakilan" class="px-6 py-4 whitespace-nowrap">
+                                        <div v-if="getBuktiDukung(item.nama_parameter).length" class="flex flex-wrap gap-2">
+                                            <a v-for="(bukti, index) in getBuktiDukung(item.nama_parameter)"
+                                               :key="index"
+                                               :href="bukti.url"
+                                               target="_blank"
+                                               class="btn-download group"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                </svg>
+                                                <span>Doc {{ bukti.label }}</span>
+                                            </a>
+                                        </div>
+                                        <span v-else class="text-sm text-gray-500 italic">No documents available</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <!-- All chart-related HTML has been removed -->
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.prod.js"></script>
+    <!-- Removed ApexCharts Script -->
+
+    <!-- Main App Script -->
+    <script>
+        // Location coordinates mapping
+        
+        const app = Vue.createApp({
+            data() {
+                return {
+                    data: [],
+                    loading: true,
+                    error: null,
+                    rataTotalKemlu: 0,
+                    rataKemluPerParameter: {},
+                    rataPerwakilan: 0,
+                    perwakilanList: [],
+                    selectedPerwakilan: '',
+                    searchQuery: '',
+                    showDropdown: false,
+                    sortKey: '',
+                    sortOrder: 'asc',
+                    lastUpdate: null
+                }
+            },
+            computed: {
+                filteredPerwakilanList() {
+                    if (!this.searchQuery) return this.perwakilanList;
+                    const query = this.searchQuery.toLowerCase().trim();
+                    return this.perwakilanList.filter(perwakilan => 
+                        perwakilan.toLowerCase().includes(query)
+                    );
+                },
+                sortedData() {
+                    let sorted = Object.keys(this.rataKemluPerParameter).map(key => ({
+                        nama_parameter: key,
+                        rata_kemlu: this.rataKemluPerParameter[key],
+                        rata_perwakilan: this.selectedPerwakilan ? this.getAveragePerwakilan(key) : null,
+                        bukti_dukung: this.getBuktiDukung(key)
+                    }));
+
+                    if (this.sortKey) {
+                        sorted.sort((a, b) => {
+                            let valA = a[this.sortKey];
+                            let valB = b[this.sortKey];
+                            
+                            // Handle string comparison
+                            if (typeof valA === 'string') {
+                                valA = valA.toLowerCase();
+                                valB = valB.toLowerCase();
+                            }
+                            
+                            if (valA < valB) return this.sortOrder === 'asc' ? -1 : 1;
+                            if (valA > valB) return this.sortOrder === 'asc' ? 1 : -1;
+                            return 0;
+                        });
+                    }
+                    return sorted;
+                },
+                formattedLastUpdate() {
+                    if (!this.lastUpdate) return 'Never';
+                    return new Date(this.lastUpdate).toLocaleString();
+                }
+            },
+            methods: {
+                async fetchData() {
+                    try {
+                        this.loading = true;
+                        this.error = null;
+                        const response = await fetch('https://script.google.com/macros/s/AKfycbzfQBSjV1o0fEmrZwCmxHfjGSXp7IgfdoTSqGfyatXhlb17bGwng11onBvpajadBsAg/exec');
+                        const result = await response.json();
+                        
+                        if (result.status === 'success') {
+                            this.data = result.data;
+                            this.lastUpdate = new Date().toISOString();
+                            this.processData();
+                        } else {
+                            throw new Error(result.message || 'Failed to fetch data');
+                        }
+                    } catch (err) {
+                        console.error('Error fetching data:', err);
+                        this.error = 'Failed to load dashboard data. Please try again later.';
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                refreshData() {
+                    this.fetchData();
+                },
+
+                processData() {
+                    // Calculate rataTotalKemlu
+                    const validScores = this.data.filter(item => !isNaN(parseFloat(item.nilai_akhir)));
+                    const total = validScores.reduce((sum, item) => sum + parseFloat(item.nilai_akhir), 0);
+                    this.rataTotalKemlu = validScores.length ? total / validScores.length : 0;
+
+                    // Calculate rataKemluPerParameter
+                    const parameterMap = this.data.reduce((acc, item) => {
+                        const param = item.nama_parameter;
+                        const nilai = parseFloat(item.nilai_akhir);
+                        if (!acc[param]) {
+                            acc[param] = { total: 0, count: 0 };
+                        }
+                        if (!isNaN(nilai)) {
+                            acc[param].total += nilai;
+                            acc[param].count += 1;
+                        }
+                        return acc;
+                    }, {});
+
+                    this.rataKemluPerParameter = Object.keys(parameterMap).reduce((acc, key) => {
+                        acc[key] = parameterMap[key].count ? parameterMap[key].total / parameterMap[key].count : 0;
+                        return acc;
+                    }, {});
+
+                    // Populate perwakilanList
+                    this.perwakilanList = [...new Set(this.data.map(item => item.nama_perwakilan))].sort();
+                },
+
+                handleSearch() {
+                    this.showDropdown = true;
+                },
+
+                handleBlur(event) {
+                    // Check if the related target is within the dropdown
+                    const dropdownContainer = event.target.parentElement;
+                    const relatedTarget = event.relatedTarget;
+                    
+                    if (!relatedTarget || !dropdownContainer.contains(relatedTarget)) {
+                        setTimeout(() => {
+                            this.showDropdown = false;
+                        }, 200);
+                    }
+                },
+
+                selectPerwakilan(perwakilan) {
+                    if (this.selectedPerwakilan === perwakilan) {
+                        this.selectedPerwakilan = '';
+                        this.searchQuery = '';
+                    } else {
+                        this.selectedPerwakilan = perwakilan;
+                        this.searchQuery = perwakilan;
+                    }
+                    this.showDropdown = false;
+                    
+                    // Calculate perwakilan average
+                    const filtered = this.data.filter(item => item.nama_perwakilan === this.selectedPerwakilan);
+                    const validScores = filtered.filter(item => !isNaN(parseFloat(item.nilai_akhir)));
+                    const total = validScores.reduce((sum, item) => sum + parseFloat(item.nilai_akhir), 0);
+                    this.rataPerwakilan = validScores.length ? total / validScores.length : 0;
+                },
+
+                getAverageKemlu(nama_parameter) {
+                    return this.rataKemluPerParameter[nama_parameter] || 0;
+                },
+
+                getAveragePerwakilan(nama_parameter) {
+                    if (!this.selectedPerwakilan) return 0;
+                    
+                    const filtered = this.data.filter(item => 
+                        item.nama_perwakilan === this.selectedPerwakilan && 
+                        item.nama_parameter === nama_parameter
+                    );
+                    
+                    if (filtered.length === 0) return 0;
+                    
+                    const validScores = filtered.filter(item => !isNaN(parseFloat(item.nilai_akhir)));
+                    if (validScores.length === 0) return 0;
+                    
+                    const total = validScores.reduce((sum, item) => sum + parseFloat(item.nilai_akhir), 0);
+                    return total / validScores.length;
+                },
+
+                getBuktiDukung(nama_parameter) {
+                    if (!this.selectedPerwakilan) return [];
+                    
+                    const items = this.data.filter(item => 
+                        item.nama_perwakilan === this.selectedPerwakilan && 
+                        item.nama_parameter === nama_parameter
+                    );
+                    
+                    if (items.length === 0) return [];
+                    
+                    const buktiList = [];
+                    items.forEach(item => {
+                        for (let i = 1; i <= 5; i++) {
+                            const key = `bukti_dukung_${i}`;
+                            if (item[key]) {
+                                const links = item[key]
+                                    .split(',')
+                                    .map(link => link.trim())
+                                    .filter(link => link);
+                                    
+                                links.forEach((link, index) => {
+                                    buktiList.push({
+                                        url: link,
+                                        label: `${i}.${index + 1}`
+                                    });
+                                });
+                            }
+                        }
+                    });
+                    return buktiList;
+                },
+
+                sortTable(key) {
+                    if (this.sortKey === key) {
+                        this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        this.sortKey = key;
+                        this.sortOrder = 'asc';
+                    }
+                },
+
+                exportToCSV() {
+                    const headers = ['Parameter Name', 'Kemlu Average'];
+                    if (this.selectedPerwakilan) {
+                        headers.push(`${this.selectedPerwakilan} Average`);
+                    }
+
+                    const rows = this.sortedData.map(item => {
+                        const row = [
+                            item.nama_parameter,
+                            item.rata_kemlu.toFixed(2)
+                        ];
+                        if (this.selectedPerwakilan) {
+                            row.push(item.rata_perwakilan.toFixed(2));
+                        }
+                        return row;
+                    });
+
+                    const csvContent = [
+                        headers.join(','),
+                        ...rows.map(row => row.join(','))
+                    ].join('\n');
+
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    
+                    link.setAttribute('href', url);
+                    link.setAttribute('download', `kemlu-dashboard-export-${new Date().toISOString().split('T')[0]}.csv`);
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            },
+            mounted() {
+                this.fetchData();
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>
