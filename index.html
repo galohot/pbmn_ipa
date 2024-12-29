@@ -280,7 +280,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <h2 class="text-lg font-medium text-gray-700">Rata-rata Total Kemlu</h2>
-                                <p class="mt-1 text-sm text-gray-500">Overall average performance score</p>
+                                <p class="mt-1 text-sm text-gray-500">Rata-rata nilai IPA Kementerian Luar Negeri RI</p>
                             </div>
                             <div class="rounded-full bg-blue-50 p-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none"
@@ -307,7 +307,7 @@
                                 <h2 class="text-lg font-medium text-gray-700">
                                     Rata-rata {{ selectedPerwakilan }}
                                 </h2>
-                                <p class="mt-1 text-sm text-gray-500">Selected representative's average score</p>
+                                <p class="mt-1 text-sm text-gray-500">Nilai Perwakilan</p>
                             </div>
                             <div class="rounded-full bg-green-50 p-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none"
@@ -324,9 +324,10 @@
                             <div class="mt-2 flex items-center">
                                 <span class="text-sm"
                                     :class="rataPerwakilan >= rataTotalKemlu ? 'text-green-600' : 'text-yellow-600'">
-                                    {{ rataPerwakilan >= rataTotalKemlu ? 'Above Average' : 'Below Average' }}
+                                    {{ rataPerwakilan >= rataTotalKemlu ? 'Diatas rata-rata KEMLU' : 'Dibawah rata-rata KEMLU' }}
                                 </span>
                             </div>
+                            <p class="mt-2 text-sm text-gray-500">diinput pada {{ formattedLastUpdatePerwakilan }}</p>
                         </div>
                     </div>
 
@@ -686,6 +687,9 @@
                     filterNewStatus: '',
                     filterNewDuplikasi: '',
                     filteredNewData: [],
+
+                    // New Property: lastUpdatePerwakilan
+                    lastUpdatePerwakilan: null,
                 }
             },
             computed: {
@@ -728,6 +732,7 @@
                     if (!this.lastUpdate) return 'Never';
                     return new Date(this.lastUpdate).toLocaleString();
                 },
+
                 // New Computed Properties
                 sortedNewData() {
                     let sorted = [...this.filteredNewData];
@@ -767,6 +772,10 @@
                 uniqueNewDuplikasis() {
                     const duplikasis = this.newData.map(item => item.duplikasi);
                     return [...new Set(duplikasis)].sort();
+                },
+                formattedLastUpdatePerwakilan() {
+                    if (!this.lastUpdatePerwakilan) return 'Tidak ada data';
+                    return this.lastUpdatePerwakilan.toLocaleString();
                 }
             },
             methods: {
@@ -823,8 +832,7 @@
                     }, {});
 
                     this.rataKemluPerParameter = Object.keys(parameterMap).reduce((acc, key) => {
-                        acc[key] = parameterMap[key].count ? parameterMap[key].total / parameterMap[key]
-                            .count : 0;
+                        acc[key] = parameterMap[key].count ? parameterMap[key].total / parameterMap[key].count : 0;
                         return acc;
                     }, {});
 
@@ -852,17 +860,27 @@
                     if (this.selectedPerwakilan === perwakilan) {
                         this.selectedPerwakilan = '';
                         this.searchQuery = '';
+                        this.rataPerwakilan = 0;
+                        this.lastUpdatePerwakilan = null;
                     } else {
                         this.selectedPerwakilan = perwakilan;
                         this.searchQuery = perwakilan;
+
+                        // Calculate perwakilan average
+                        const filtered = this.data.filter(item => item.nama_perwakilan === this.selectedPerwakilan);
+                        const validScores = filtered.filter(item => !isNaN(parseFloat(item.nilai_akhir)));
+                        const total = validScores.reduce((sum, item) => sum + parseFloat(item.nilai_akhir), 0);
+                        this.rataPerwakilan = validScores.length ? total / validScores.length : 0;
+
+                        // Compute lastUpdatePerwakilan
+                        const perwakilanItems = this.data.filter(item => item.nama_perwakilan === this.selectedPerwakilan && item.timestamp);
+                        if (perwakilanItems.length) {
+                            this.lastUpdatePerwakilan = new Date(Math.max(...perwakilanItems.map(item => new Date(item.timestamp))));
+                        } else {
+                            this.lastUpdatePerwakilan = null;
+                        }
                     }
                     this.showDropdown = false;
-
-                    // Calculate perwakilan average
-                    const filtered = this.data.filter(item => item.nama_perwakilan === this.selectedPerwakilan);
-                    const validScores = filtered.filter(item => !isNaN(parseFloat(item.nilai_akhir)));
-                    const total = validScores.reduce((sum, item) => sum + parseFloat(item.nilai_akhir), 0);
-                    this.rataPerwakilan = validScores.length ? total / validScores.length : 0;
                 },
 
                 getAverageKemlu(nama_parameter) {
