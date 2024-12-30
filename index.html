@@ -288,7 +288,10 @@
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <div class="col-span-1 md:col-span-2 lg:col-span-3">
                         <!-- Update Data Button with limitation -->
-                        <button class="btn-kemenlu my-5 py-1 text-sm" @click="updateDataManually"
+                        <p style="font-size: 0.8em; color: #6c757d;">
+                            Update otomatis setiap 2 menit
+                        </p>
+                        <button class="btn-kemenlu mb-5 mt-1 py-1 text-sm" @click="updateDataManually"
                             :disabled="isManualUpdating"
                             :class="{
                                 'opacity-50 cursor-not-allowed': isManualUpdating
@@ -621,7 +624,7 @@
                                 {{ option }}
                             </option>
                         </select>
-                   </div>
+                    </div>
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-medium">Satker Status</h2>
                         <button
