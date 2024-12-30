@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kemlu Dashboard - Ministry of Foreign Affairs Performance Monitoring System">
-    <meta name="theme-color" content="#3C59A7">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kemlu Dashboard - Ministry of Foreign Affairs Performance Monitoring System" />
+    <meta name="theme-color" content="#3C59A7" />
     <title>DASHBOARD IPA SATKER BY BUM</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="https://lh3.googleusercontent.com/d/1YJ5QUeb-ekUYZbXIK_WuBWNi-RvhC40o" type="image/png">
-
-    <!-- Core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet">
-
-    <!-- Custom Styles -->
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1YJ5QUeb-ekUYZbXIK_WuBWNi-RvhC40o" type="image/png" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
+        rel="stylesheet"
+    />
+    <link
+        href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+        rel="stylesheet"
+    />
     <style>
         :root {
             --kemenlu-navy-500: #3C59A7;
@@ -25,13 +24,11 @@
             --kemenlu-green-600: #059669;
             --kemenlu-green-700: #047857;
         }
-
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
         .btn-kemenlu {
             background-color: var(--kemenlu-navy-500);
             color: #ffffff;
@@ -47,18 +44,15 @@
             border: 2px solid transparent;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
         .btn-kemenlu:hover {
             background-color: var(--kemenlu-navy-600);
             transform: translateY(-1px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         .btn-kemenlu:active {
             background-color: var(--kemenlu-navy-700);
             transform: translateY(0);
         }
-
         .btn-download {
             background-color: var(--kemenlu-green-500);
             color: #ffffff;
@@ -73,17 +67,14 @@
             transition: all 0.2s ease-in-out;
             border: 1px solid transparent;
         }
-
         .btn-download:hover {
             background-color: var(--kemenlu-green-600);
             transform: translateY(-1px);
         }
-
         .btn-download:active {
             background-color: var(--kemenlu-green-700);
             transform: translateY(0);
         }
-
         .card-kemenlu {
             background-color: #ffffff;
             border-radius: 1rem;
@@ -93,19 +84,16 @@
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-
         .card-kemenlu:hover {
             transform: translateY(-2px);
             box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08),
                 0 10px 20px -8px rgba(0, 0, 0, 0.05);
         }
-
         .dropdown-container {
             position: relative;
             width: 100%;
             max-width: 24rem;
         }
-
         .dropdown-input {
             width: 100%;
             padding: 0.75rem 1rem;
@@ -115,13 +103,11 @@
             transition: all 0.2s ease;
             background-color: #ffffff;
         }
-
         .dropdown-input:focus {
             outline: none;
             border-color: var(--kemenlu-navy-500);
             box-shadow: 0 0 0 3px rgba(60, 89, 167, 0.1);
         }
-
         .dropdown-list {
             position: absolute;
             top: calc(100% + 0.25rem);
@@ -136,108 +122,134 @@
                 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             z-index: 50;
         }
-
         .dropdown-item {
             padding: 0.75rem 1rem;
             cursor: pointer;
             transition: all 0.2s ease;
         }
-
         .dropdown-item:hover {
             background-color: #F3F4F6;
             color: var(--kemenlu-navy-500);
         }
-
-        /* Custom Scrollbar */
         .custom-scrollbar {
             scrollbar-width: thin;
             scrollbar-color: #CBD5E1 #F1F5F9;
         }
-
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
-
         .custom-scrollbar::-webkit-scrollbar-track {
             background: #F1F5F9;
             border-radius: 3px;
         }
-
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background-color: #CBD5E1;
             border-radius: 3px;
             border: 2px solid #F1F5F9;
         }
-
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background-color: #94A3B8;
         }
-
-        /* Loading Animation */
-        .loading-spinner {
+        .loading-spinner,
+        .mini-loading-spinner {
             border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
-            border: 0.25rem solid var(--kemenlu-navy-500);
             border-top-color: transparent;
             animation: spin 1s linear infinite;
         }
-
+        .loading-spinner {
+            width: 3rem;
+            height: 3rem;
+            border: 0.25rem solid var(--kemenlu-navy-500);
+        }
+        .mini-loading-spinner {
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid var(--kemenlu-navy-500);
+        }
         @keyframes spin {
             to {
                 transform: rotate(360deg);
             }
         }
+        .background-loader {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        .manual-update-loader {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
     </style>
 </head>
-
 <body class="bg-gray-50">
-    <!-- Header -->
     <header class="sticky top-0 z-50 border-b border-gray-200 bg-white">
-        <div class="mx-auto max-w-7xl px-6 py-4">
+        <div class="mx-auto max-w-7xl px-6 py-4 relative">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <img src="https://lh3.googleusercontent.com/d/1NY5Ncxw9q2zWS5OH2QAMVbkzKDJT4wl0"
-                        alt="Kementerian Luar Negeri Logo" class="h-12 w-auto" loading="eager">
+                    <img
+                        src="https://lh3.googleusercontent.com/d/1NY5Ncxw9q2zWS5OH2QAMVbkzKDJT4wl0"
+                        alt="Kementerian Luar Negeri Logo"
+                        class="h-12 w-auto"
+                        loading="eager"
+                    />
                     <div>
                         <h1 class="text-2xl font-bold text-gray-900">IPA SATKER 2025</h1>
                         <p class="text-sm text-gray-500">By Bagian PBMN, Biro Umum, KEMLU</p>
                     </div>
                 </div>
             </div>
+            <!-- <div v-if="autoPolling" class="background-loader">
+                <div class="mini-loading-spinner"></div>
+            </div>
+            <div v-if="isManualUpdating" class="manual-update-loader">
+                <div class="mini-loading-spinner"></div>
+            </div> -->
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="mx-auto max-w-7xl px-6 py-8">
         <div id="app">
-            <!-- Loading State -->
-            <div v-if="loading || loadingNewData"
-                class="flex min-h-[60vh] flex-col items-center justify-center space-y-4">
-                <div class="loading-spinner"></div>
-                <p class="font-medium text-gray-600">Loading dashboard data...</p>
-            </div>
-
-            <!-- Error State -->
-            <div v-if="error || errorNewData" class="mx-auto mt-8 max-w-lg">
+            <div v-if="error && !cachedDataLoaded" class="mx-auto mt-8 max-w-lg">
                 <div class="rounded-r-lg border-l-4 border-red-500 bg-red-50 p-6">
                     <div class="flex items-start space-x-3">
                         <div class="flex-shrink-0">
-                            <svg class="h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <svg
+                                class="h-6 w-6 text-red-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
                             </svg>
                         </div>
                         <div>
                             <h3 class="text-lg font-medium text-red-800">Error Loading Data</h3>
-                            <p class="mt-1 text-red-700">{{ error || errorNewData }}</p>
-                            <button @click="fetchData"
-                                class="mt-4 inline-flex items-center space-x-2 font-medium text-red-600 hover:text-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            <p class="mt-1 text-red-700">{{ error }}</p>
+                            <button
+                                @click="fetchAllData"
+                                class="mt-4 inline-flex items-center space-x-2 font-medium text-red-600 hover:text-red-500"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                    />
                                 </svg>
                                 <span>Try Again</span>
                             </button>
@@ -246,23 +258,92 @@
                 </div>
             </div>
 
-            <!-- Content -->
-            <div v-if="!loading && !error && !loadingNewData && !errorNewData" class="space-y-8">
-                <!-- Search and Filter Section -->
+            <div v-if="errorNewData && !cachedNewDataLoaded" class="mx-auto mt-8 max-w-lg">
+                <div class="rounded-r-lg border-l-4 border-red-500 bg-red-50 p-6">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0">
+                            <svg
+                                class="h-6 w-6 text-red-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-red-800">Error Loading Data</h3>
+                            <p class="mt-1 text-red-700">{{ errorNewData }}</p>
+                            <button
+                                @click="fetchAllData"
+                                class="mt-4 inline-flex items-center space-x-2 font-medium text-red-600 hover:text-red-500"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                    />
+                                </svg>
+                                <span>Try Again</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div v-show="!error && !errorNewData" class="space-y-8">
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <div class="col-span-1 md:col-span-2 lg:col-span-3">
-                        <label for="perwakilan" class="mb-2 block text-sm font-medium text-gray-700">
-                            Filter by Nama Perwakilan <br /> <span><i>Ketik nama perwakilan dikolom pencarian apabila
-                                    dropdown items tidak muncul</i></span>
+                        <label
+                            for="perwakilan"
+                            class="mb-2 block text-sm font-medium text-gray-700"
+                        >
+                            Filter by Nama Perwakilan
+                            <br />
+                            <span>
+                                <i
+                                    >Ketik nama perwakilan dikolom pencarian apabila dropdown
+                                    items tidak muncul</i
+                                >
+                            </span>
                         </label>
                         <div class="dropdown-container">
-                            <input type="text" id="perwakilan" v-model="searchQuery" @focus="showDropdown = true"
-                                @blur="handleBlur" @input="handleSearch" placeholder="Search Perwakilan..."
-                                class="dropdown-input" />
-                            <div v-show="showDropdown" class="dropdown-list custom-scrollbar" @mousedown.prevent>
+                            <input
+                                type="text"
+                                id="perwakilan"
+                                v-model="searchQuery"
+                                @focus="showDropdown = true"
+                                @blur="handleBlur"
+                                @input="handleSearch"
+                                placeholder="Search Perwakilan..."
+                                class="dropdown-input"
+                            />
+                            <div
+                                v-show="showDropdown"
+                                class="dropdown-list custom-scrollbar"
+                                @mousedown.prevent
+                            >
                                 <template v-if="filteredPerwakilanList.length">
-                                    <div v-for="perwakilan in filteredPerwakilanList" :key="perwakilan"
-                                        @mousedown="selectPerwakilan(perwakilan)" class="dropdown-item">
+                                    <div
+                                        v-for="perwakilan in filteredPerwakilanList"
+                                        :key="perwakilan"
+                                        @mousedown="selectPerwakilan(perwakilan)"
+                                        class="dropdown-item"
+                                    >
                                         {{ perwakilan }}
                                     </div>
                                 </template>
@@ -273,34 +354,42 @@
                         </div>
                     </div>
                 </div>
-                <!-- Statistics Cards -->
+
                 <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-                    <!-- Rata-rata Total Kemlu Card -->
                     <div class="card-kemenlu">
                         <div class="flex items-center justify-between">
                             <div>
-                                <h2 class="text-lg font-medium text-gray-700">Rata-rata Total Kemlu</h2>
-                                <p class="mt-1 text-sm text-gray-500">Rata-rata nilai IPA Kementerian Luar Negeri RI</p>
+                                <h2 class="text-lg font-medium text-gray-700">
+                                    Rata-rata Total Kemlu
+                                </h2>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    Rata-rata nilai IPA Kementerian Luar Negeri RI
+                                </p>
                             </div>
                             <div class="rounded-full bg-blue-50 p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6 text-blue-600"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                                    />
                                 </svg>
                             </div>
                         </div>
                         <div class="mt-4">
-                            <p class="text-4xl font-bold text-blue-700">{{ rataTotalKemlu.toFixed(2) }}</p>
-                            <div class="mt-2 flex items-center">
-                                <!-- <span class="text-sm" :class="rataTotalKemlu >= 3.2 ? 'text-green-600' : 'text-yellow-600'">
-                                    {{ rataTotalKemlu >= 3.2 ? 'Excellent' : 'Needs Improvement' }}
-                                </span> -->
-                            </div>
+                            <p class="text-4xl font-bold text-blue-700">
+                                {{ rataTotalKemlu.toFixed(2) }}
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Rata-rata Perwakilan Card -->
                     <div v-if="selectedPerwakilan" class="card-kemenlu">
                         <div class="flex items-center justify-between">
                             <div>
@@ -310,63 +399,127 @@
                                 <p class="mt-1 text-sm text-gray-500">Nilai Perwakilan</p>
                             </div>
                             <div class="rounded-full bg-green-50 p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6 text-green-600"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                    />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                    />
                                 </svg>
                             </div>
                         </div>
                         <div class="mt-4">
-                            <p class="text-4xl font-bold text-green-600">{{ rataPerwakilan.toFixed(2) }}</p>
+                            <p class="text-4xl font-bold text-green-600">
+                                {{ rataPerwakilan.toFixed(2) }}
+                            </p>
                             <div class="mt-2 flex items-center">
-                                <span class="text-sm"
-                                    :class="rataPerwakilan >= rataTotalKemlu ? 'text-green-600' : 'text-yellow-600'">
-                                    {{ rataPerwakilan >= rataTotalKemlu ? 'Diatas rata-rata KEMLU' : 'Dibawah rata-rata KEMLU' }}
+                                <span
+                                    class="text-sm"
+                                    :class="rataPerwakilan >= rataTotalKemlu ? 'text-green-600' : 'text-yellow-600'"
+                                >
+                                    {{
+                                        rataPerwakilan >= rataTotalKemlu
+                                            ? 'Diatas rata-rata KEMLU'
+                                            : 'Dibawah rata-rata KEMLU'
+                                    }}
                                 </span>
                             </div>
-                            <p class="mt-2 text-sm text-gray-500">diinput pada {{ formattedLastUpdatePerwakilan }}</p>
+                            <p class="mt-2 text-sm text-gray-500">
+                                diinput pada {{ formattedLastUpdatePerwakilan }}
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Unique Perwakilan Count Card -->
                     <div class="card-kemenlu">
                         <div class="flex items-center justify-between">
                             <div>
                                 <h2 class="text-lg font-medium text-gray-700">Satuan Kerja</h2>
-                                <p class="mt-1 text-sm text-gray-500">Jumlah Satuan Kerja Sudah Isi</p>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    Jumlah Satker yang Selesai
+                                </p>
                             </div>
                             <div class="rounded-full bg-purple-50 p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 20h5v-5M17 4h5v5M4 20h5v-5M4 4h5v5" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6 text-purple-600"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M17 20h5v-5M17 4h5v5M4 20h5v-5M4 4h5v5"
+                                    />
                                 </svg>
                             </div>
                         </div>
                         <div class="mt-4">
-                            <p class="text-4xl font-bold text-purple-700">{{ uniquePerwakilanCount }}</p>
+                            <p class="text-4xl font-bold text-purple-700">
+                                {{ countSelesai }}
+                            </p>
                             <div class="mt-2 flex items-center">
-                                <span class="text-sm text-gray-600">Total Satuan Kerja</span>
+                                <span class="text-sm text-gray-600">
+                                    Total Selesai
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Performance Details Table -->
                 <div class="card-kemenlu overflow-hidden">
                     <div class="mb-4 flex items-center justify-between">
-                        <h2 class="text-lg font-medium text-gray-700">Performance Details</h2>
+                        <h2 class="text-lg font-medium text-gray-700">
+                            Performance Details
+                        </h2>
                         <div class="flex items-center space-x-2">
                             <button class="btn-kemenlu py-1 text-sm" @click="exportToCSV">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-1 h-4 w-4" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="mr-1 h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                    />
                                 </svg>
                                 Export Data
+                            </button>
+                            <button class="btn-kemenlu py-1 text-sm" @click="updateDataManually">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="mr-1 h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                    />
+                                </svg>
+                                Update Data
                             </button>
                         </div>
                     </div>
@@ -374,272 +527,428 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th @click="sortTable('nama_parameter')"
-                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100">
+                                    <th
+                                        @click="sortTable('nama_parameter')"
+                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100"
+                                    >
                                         <div class="flex items-center space-x-1">
                                             <span>Parameter Name</span>
                                             <span class="text-gray-400 group-hover:text-gray-500">
-                                                <svg v-if="sortKey === 'nama_parameter'"
+                                                <svg
+                                                    v-if="sortKey === 'nama_parameter'"
                                                     :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
-                                                    class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
+                                                    class="h-4 w-4"
+                                                    fill="currentColor"
+                                                    viewBox="0 0 20 20"
+                                                >
+                                                    <path
+                                                        fill-rule="evenodd"
                                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
+                                                        clip-rule="evenodd"
+                                                    />
                                                 </svg>
                                             </span>
                                         </div>
                                     </th>
-                                    <th @click="sortTable('rata_kemlu')"
-                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100">
+                                    <th
+                                        @click="sortTable('rata_kemlu')"
+                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100"
+                                    >
                                         <div class="flex items-center space-x-1">
                                             <span>Kemlu Average</span>
                                             <span class="text-gray-400 group-hover:text-gray-500">
-                                                <svg v-if="sortKey === 'rata_kemlu'"
+                                                <svg
+                                                    v-if="sortKey === 'rata_kemlu'"
                                                     :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
-                                                    class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
+                                                    class="h-4 w-4"
+                                                    fill="currentColor"
+                                                    viewBox="0 0 20 20"
+                                                >
+                                                    <path
+                                                        fill-rule="evenodd"
                                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
+                                                        clip-rule="evenodd"
+                                                    />
                                                 </svg>
                                             </span>
                                         </div>
                                     </th>
-                                    <th v-if="selectedPerwakilan" @click="sortTable('rata_perwakilan')"
-                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100">
+                                    <th
+                                        v-if="selectedPerwakilan"
+                                        @click="sortTable('rata_perwakilan')"
+                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100"
+                                    >
                                         <div class="flex items-center space-x-1">
                                             <span>{{ selectedPerwakilan }} Average</span>
                                             <span class="text-gray-400 group-hover:text-gray-500">
-                                                <svg v-if="sortKey === 'rata_perwakilan'"
+                                                <svg
+                                                    v-if="sortKey === 'rata_perwakilan'"
                                                     :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
-                                                    class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
+                                                    class="h-4 w-4"
+                                                    fill="currentColor"
+                                                    viewBox="0 0 20 20"
+                                                >
+                                                    <path
+                                                        fill-rule="evenodd"
                                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
+                                                        clip-rule="evenodd"
+                                                    />
                                                 </svg>
                                             </span>
                                         </div>
                                     </th>
-                                    <th v-if="selectedPerwakilan"
-                                        class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                    <th
+                                        v-if="selectedPerwakilan"
+                                        class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                                    >
                                         Supporting Documents
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 bg-white">
-                                <tr v-for="item in sortedData" :key="item.nama_parameter"
-                                    class="transition-colors duration-150 hover:bg-gray-50">
+                                <tr
+                                    v-for="item in sortedData"
+                                    :key="item.nama_parameter"
+                                    class="transition-colors duration-150 hover:bg-gray-50"
+                                >
                                     <td class="whitespace-normal px-6 py-4">
-                                        <div class="text-sm text-gray-900">{{ item.nama_parameter }}</div>
+                                        <div class="text-sm text-gray-900">
+                                            {{ item.nama_parameter }}
+                                        </div>
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4">
                                         <div class="flex items-center">
-                                            <div class="text-sm font-medium"
-                                                :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'text-green-600' :
-                                                    'text-yellow-600'">
+                                            <div
+                                                class="text-sm font-medium"
+                                                :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'text-green-600' : 'text-yellow-600'"
+                                            >
                                                 {{ getAverageKemlu(item.nama_parameter).toFixed(2) }}
                                             </div>
                                             <div class="ml-2 h-1.5 w-16 rounded-full bg-gray-200">
-                                                <div class="h-full rounded-full transition-all duration-300"
-                                                    :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'bg-green-500' :
-                                                        'bg-yellow-500'"
-                                                    :style="{ width: (getAverageKemlu(item.nama_parameter) / 4 * 100) + '%' }">
-                                                </div>
+                                                <div
+                                                    class="h-full rounded-full transition-all duration-300"
+                                                    :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'bg-green-500' : 'bg-yellow-500'"
+                                                    :style="{ width: (getAverageKemlu(item.nama_parameter) / 4 * 100) + '%' }"
+                                                ></div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td v-if="selectedPerwakilan" class="whitespace-nowrap px-6 py-4">
+                                    <td
+                                        v-if="selectedPerwakilan"
+                                        class="whitespace-nowrap px-6 py-4"
+                                    >
                                         <div class="flex items-center">
-                                            <div class="text-sm font-medium"
-                                                :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'text-green-600' :
-                                                    'text-yellow-600'">
+                                            <div
+                                                class="text-sm font-medium"
+                                                :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'text-green-600' : 'text-yellow-600'"
+                                            >
                                                 {{ getAveragePerwakilan(item.nama_parameter).toFixed(2) }}
                                             </div>
                                             <div class="ml-2 h-1.5 w-16 rounded-full bg-gray-200">
-                                                <div class="h-full rounded-full transition-all duration-300"
-                                                    :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'bg-green-500' :
-                                                        'bg-yellow-500'"
-                                                    :style="{ width: (getAveragePerwakilan(item.nama_parameter) / 4 * 100) +
-                                                        '%' }">
-                                                </div>
+                                                <div
+                                                    class="h-full rounded-full transition-all duration-300"
+                                                    :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'bg-green-500' : 'bg-yellow-500'"
+                                                    :style="{ width: (getAveragePerwakilan(item.nama_parameter) / 4 * 100) + '%' }"
+                                                ></div>
                                             </div>
                                         </div>
                                     </td>
                                     <td v-if="selectedPerwakilan" class="whitespace-nowrap px-6 py-4">
-                                        <div v-if="getBuktiDukung(item.nama_parameter).length"
-                                            class="flex flex-wrap gap-2">
-                                            <a v-for="(bukti, index) in getBuktiDukung(item.nama_parameter)"
-                                                :key="index" :href="bukti.url" target="_blank"
-                                                class="btn-download group">
-                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                        <div
+                                            v-if="getBuktiDukung(item.nama_parameter).length"
+                                            class="flex flex-wrap gap-2"
+                                        >
+                                            <a
+                                                v-for="(bukti, index) in getBuktiDukung(item.nama_parameter)"
+                                                :key="index"
+                                                :href="bukti.url"
+                                                target="_blank"
+                                                class="btn-download group"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
                                                     class="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
                                                         stroke-width="2"
-                                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                                    />
                                                 </svg>
                                                 <span>Doc {{ bukti.label }}</span>
                                             </a>
                                         </div>
-                                        <span v-else class="text-sm italic text-gray-500">No documents available</span>
+                                        <span
+                                            v-else
+                                            class="text-sm italic text-gray-500"
+                                        >
+                                            No documents available
+                                        </span>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <!-- Pagination Controls -->
                     <div class="mt-4 flex items-center justify-between">
                         <div class="flex items-center space-x-2">
-                            <button @click="changePage(currentPage - 1)" :disabled="currentPage === 1"
-                                class="rounded bg-gray-200 px-3 py-1 text-gray-700 disabled:opacity-50">
+                            <button
+                                @click="changePage(currentPage - 1)"
+                                :disabled="currentPage === 1"
+                                class="rounded bg-gray-200 px-3 py-1 text-gray-700 disabled:opacity-50"
+                            >
                                 Previous
                             </button>
-                            <span class="text-gray-700">Page {{ currentPage }} of {{ totalPages }}</span>
-                            <button @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages"
-                                class="rounded bg-gray-200 px-3 py-1 text-gray-700 disabled:opacity-50">
+                            <span class="text-gray-700"
+                                >Page {{ currentPage }} of {{ totalPages }}</span
+                            >
+                            <button
+                                @click="changePage(currentPage + 1)"
+                                :disabled="currentPage === totalPages"
+                                class="rounded bg-gray-200 px-3 py-1 text-gray-700 disabled:opacity-50"
+                            >
                                 Next
                             </button>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <label for="itemsPerPage" class="text-sm text-gray-700">Items per page:</label>
-                            <select id="itemsPerPage" v-model.number="itemsPerPage"
-                                class="mt-1 block rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                                <option v-for="option in itemsOptions" :key="option" :value="option">
-                                    {{ option }}</option>
+                            <label
+                                for="itemsPerPage"
+                                class="text-sm text-gray-700"
+                                >Items per page:</label
+                            >
+                            <select
+                                id="itemsPerPage"
+                                v-model.number="itemsPerPage"
+                                class="mt-1 block rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                            >
+                                <option
+                                    v-for="option in itemsOptions"
+                                    :key="option"
+                                    :value="option"
+                                >
+                                    {{ option }}
+                                </option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                <!-- New Data Table -->
                 <div class="card-kemenlu mx-auto max-w-6xl bg-white">
-                    <!-- Header with proper centered spacing -->
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-medium">Satker Status</h2>
                         <button
                             class="btn-kemenlu inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-                            @click="exportNewDataToCSV">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-4 w-4" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            @click="exportNewDataToCSV"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="mr-2 h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                />
                             </svg>
                             Export Data
                         </button>
                     </div>
 
-                    <!-- Search and Filter Controls -->
                     <div class="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- Search by Nama -->
                         <div>
-                            <label for="searchNama" class="block text-sm font-medium text-gray-700">Search Nama</label>
-                            <input type="text" id="searchNama" v-model="searchNewNama" @input="applyNewFilters"
+                            <label
+                                for="searchNama"
+                                class="block text-sm font-medium text-gray-700"
+                                >Search Nama</label
+                            >
+                            <input
+                                type="text"
+                                id="searchNama"
+                                v-model="searchNewNama"
+                                @input="applyNewFilters"
                                 placeholder="Search by Nama..."
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            />
                         </div>
-
-                        <!-- Filter by Status -->
                         <div>
-                            <label for="filterStatus" class="block text-sm font-medium text-gray-700">Filter Status</label>
-                            <select id="filterStatus" v-model="filterNewStatus" @change="applyNewFilters"
-                                class="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                            <label
+                                for="filterStatus"
+                                class="block text-sm font-medium text-gray-700"
+                                >Filter Status</label
+                            >
+                            <select
+                                id="filterStatus"
+                                v-model="filterNewStatus"
+                                @change="applyNewFilters"
+                                class="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                            >
                                 <option value="">All Statuses</option>
-                                <option v-for="status in uniqueNewStatuses" :key="status" :value="status">
-                                    {{ status }}</option>
+                                <option
+                                    v-for="status in uniqueNewStatuses"
+                                    :key="status"
+                                    :value="status"
+                                >
+                                    {{ status }}
+                                </option>
                             </select>
                         </div>
-
-                        <!-- Filter by Duplikasi -->
                         <div>
-                            <label for="filterDuplikasi" class="block text-sm font-medium text-gray-700">Filter
-                                Duplikasi</label>
-                            <select id="filterDuplikasi" v-model="filterNewDuplikasi" @change="applyNewFilters"
-                                class="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                            <label
+                                for="filterDuplikasi"
+                                class="block text-sm font-medium text-gray-700"
+                                >Filter Duplikasi</label
+                            >
+                            <select
+                                id="filterDuplikasi"
+                                v-model="filterNewDuplikasi"
+                                @change="applyNewFilters"
+                                class="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                            >
                                 <option value="">All Duplikasis</option>
-                                <option v-for="duplikasi in uniqueNewDuplikasis" :key="duplikasi" :value="duplikasi">
-                                    {{ duplikasi }}</option>
+                                <option
+                                    v-for="duplikasi in uniqueNewDuplikasis"
+                                    :key="duplikasi"
+                                    :value="duplikasi"
+                                >
+                                    {{ duplikasi }}
+                                </option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- Table with consistent spacing -->
                     <div class="overflow-x-auto">
                         <table class="w-full">
                             <thead class="border-y border-gray-200 bg-gray-50">
                                 <tr>
-                                    <th @click="sortNewData('nama')"
-                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500">
+                                    <th
+                                        @click="sortNewData('nama')"
+                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500"
+                                    >
                                         <div class="flex items-center">
                                             <span class="mr-2">NAMA</span>
-                                            <svg v-if="sortNewKey === 'nama'"
+                                            <svg
+                                                v-if="sortNewKey === 'nama'"
                                                 :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
-                                                class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
+                                                class="h-4 w-4"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
                                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
+                                                    clip-rule="evenodd"
+                                                />
                                             </svg>
                                         </div>
                                     </th>
-                                    <th @click="sortNewData('status')"
-                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500">
+                                    <th
+                                        @click="sortNewData('status')"
+                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500"
+                                    >
                                         <div class="flex items-center">
                                             <span class="mr-2">STATUS</span>
-                                            <svg v-if="sortNewKey === 'status'"
+                                            <svg
+                                                v-if="sortNewKey === 'status'"
                                                 :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
-                                                class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
+                                                class="h-4 w-4"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
                                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
+                                                    clip-rule="evenodd"
+                                                />
                                             </svg>
                                         </div>
                                     </th>
-                                    <th @click="sortNewData('duplikasi')"
-                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500">
+                                    <th
+                                        @click="sortNewData('duplikasi')"
+                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500"
+                                    >
                                         <div class="flex items-center">
                                             <span class="mr-2">DUPLIKASI</span>
-                                            <svg v-if="sortNewKey === 'duplikasi'"
+                                            <svg
+                                                v-if="sortNewKey === 'duplikasi'"
                                                 :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
-                                                class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
+                                                class="h-4 w-4"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    fill-rule="evenodd"
                                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
+                                                    clip-rule="evenodd"
+                                                />
                                             </svg>
                                         </div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="item in sortedNewData" :key="item.nama"
-                                    class="border-b border-gray-200 hover:bg-gray-50">
-                                    <td class="px-4 py-3 text-sm">{{ item.nama }}</td>
-                                    <td class="px-4 py-3 text-sm">{{ item.status }}</td>
-                                    <td class="px-4 py-3 text-sm">{{ item.duplikasi }}</td>
+                                <tr
+                                    v-for="item in sortedNewData"
+                                    :key="item.nama"
+                                    class="border-b border-gray-200 hover:bg-gray-50"
+                                >
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ item.nama }}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ item.status }}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ item.duplikasi }}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-
-                    <!-- Pagination with balanced spacing -->
                     <div class="flex items-center justify-between border-t border-gray-200 p-4">
                         <div class="flex items-center gap-3">
-                            <button @click="changeNewPage(currentNewPage - 1)" :disabled="currentNewPage === 1"
-                                class="rounded border border-gray-300 px-3 py-1 text-sm hover:bg-gray-50 disabled:opacity-50">
+                            <button
+                                @click="changeNewPage(currentNewPage - 1)"
+                                :disabled="currentNewPage === 1"
+                                class="rounded border border-gray-300 px-3 py-1 text-sm hover:bg-gray-50 disabled:opacity-50"
+                            >
                                 Previous
                             </button>
-                            <span class="text-sm text-gray-600">Page {{ currentNewPage }} of
-                                {{ totalNewPages }}</span>
-                            <button @click="changeNewPage(currentNewPage + 1)"
+                            <span class="text-sm text-gray-600"
+                                >Page {{ currentNewPage }} of {{ totalNewPages }}</span
+                            >
+                            <button
+                                @click="changeNewPage(currentNewPage + 1)"
                                 :disabled="currentNewPage === totalNewPages"
-                                class="rounded border border-gray-300 px-3 py-1 text-sm hover:bg-gray-50 disabled:opacity-50">
+                                class="rounded border border-gray-300 px-3 py-1 text-sm hover:bg-gray-50 disabled:opacity-50"
+                            >
                                 Next
                             </button>
                         </div>
-
                         <div class="flex items-center gap-2">
-                            <label for="itemsPerPageNew" class="text-sm text-gray-600">Items per page:</label>
-                            <select id="itemsPerPageNew" v-model.number="itemsPerPageNew"
-                                class="rounded border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500">
-                                <option v-for="option in itemsOptions" :key="option" :value="option">
-                                    {{ option }}</option>
+                            <label
+                                for="itemsPerPageNew"
+                                class="text-sm text-gray-600"
+                                >Items per page:</label
+                            >
+                            <select
+                                id="itemsPerPageNew"
+                                v-model.number="itemsPerPageNew"
+                                class="rounded border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            >
+                                <option
+                                    v-for="option in itemsOptions"
+                                    :key="option"
+                                    :value="option"
+                                >
+                                    {{ option }}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -648,18 +957,18 @@
         </div>
     </main>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.prod.js"></script>
-
-    <!-- Main App Script -->
     <script>
+        const CACHE_KEY_MAIN = 'kemlu_dashboard_data';
+        const CACHE_KEY_NEW = 'kemlu_dashboard_new_data';
+        const CACHE_EXPIRATION_MS = 60 * 1000;
+
         const app = Vue.createApp({
             data() {
                 return {
-                    // Existing Data
                     data: [],
-                    loading: true,
+                    loading: false,
                     error: null,
                     rataTotalKemlu: 0,
                     rataKemluPerParameter: {},
@@ -671,42 +980,47 @@
                     sortKey: '',
                     sortOrder: 'asc',
                     lastUpdate: null,
+                    currentPage: 1,
+                    itemsPerPage: 15,
 
-                    // New Data
                     newData: [],
-                    loadingNewData: true,
+                    loadingNewData: false,
                     errorNewData: null,
                     sortNewKey: '',
                     sortNewOrder: 'asc',
                     currentNewPage: 1,
-                    itemsPerPageNew: 5,
-                    itemsOptions: [5, 10, 20, 50, 100, 200, 500, 1000],
+                    itemsPerPageNew: 10,
 
-                    // New Search and Filters
                     searchNewNama: '',
                     filterNewStatus: '',
                     filterNewDuplikasi: '',
                     filteredNewData: [],
 
-                    // New Property: lastUpdatePerwakilan
                     lastUpdatePerwakilan: null,
-                }
+                    itemsOptions: [5, 10, 20, 50, 100, 200, 500, 1000],
+
+                    cachedDataLoaded: false,
+                    cachedNewDataLoaded: false,
+
+                    autoPolling: false,
+                    isManualUpdating: false
+                };
             },
             computed: {
-                // Existing Computed Properties
                 filteredPerwakilanList() {
                     if (!this.searchQuery) return this.perwakilanList;
                     const query = this.searchQuery.toLowerCase().trim();
-                    return this.perwakilanList.filter(perwakilan =>
-                        perwakilan.toLowerCase().includes(query)
+                    return this.perwakilanList.filter((p) =>
+                        p.toLowerCase().includes(query)
                     );
                 },
                 sortedData() {
-                    let sorted = Object.keys(this.rataKemluPerParameter).map(key => ({
+                    let sorted = Object.keys(this.rataKemluPerParameter).map((key) => ({
                         nama_parameter: key,
                         rata_kemlu: this.rataKemluPerParameter[key],
-                        rata_perwakilan: this.selectedPerwakilan ? this.getAveragePerwakilan(key) :
-                            null,
+                        rata_perwakilan: this.selectedPerwakilan
+                            ? this.getAveragePerwakilan(key)
+                            : null,
                         bukti_dukung: this.getBuktiDukung(key)
                     }));
 
@@ -714,47 +1028,43 @@
                         sorted.sort((a, b) => {
                             let valA = a[this.sortKey];
                             let valB = b[this.sortKey];
-
-                            // Handle string comparison
                             if (typeof valA === 'string') {
                                 valA = valA.toLowerCase();
                                 valB = valB.toLowerCase();
                             }
-
                             if (valA < valB) return this.sortOrder === 'asc' ? -1 : 1;
                             if (valA > valB) return this.sortOrder === 'asc' ? 1 : -1;
                             return 0;
                         });
                     }
-                    return sorted;
+                    const start = (this.currentPage - 1) * this.itemsPerPage;
+                    const end = start + this.itemsPerPage;
+                    return sorted.slice(start, end);
+                },
+                totalPages() {
+                    return Math.ceil(
+                        Object.keys(this.rataKemluPerParameter).length / this.itemsPerPage
+                    );
                 },
                 formattedLastUpdate() {
                     if (!this.lastUpdate) return 'Never';
                     return new Date(this.lastUpdate).toLocaleString();
                 },
-
-                // New Computed Properties
                 sortedNewData() {
                     let sorted = [...this.filteredNewData];
-
                     if (this.sortNewKey) {
                         sorted.sort((a, b) => {
                             let valA = a[this.sortNewKey];
                             let valB = b[this.sortNewKey];
-
-                            // Handle string comparison
                             if (typeof valA === 'string') {
                                 valA = valA.toLowerCase();
                                 valB = valB.toLowerCase();
                             }
-
                             if (valA < valB) return this.sortNewOrder === 'asc' ? -1 : 1;
                             if (valA > valB) return this.sortNewOrder === 'asc' ? 1 : -1;
                             return 0;
                         });
                     }
-
-                    // Pagination
                     const start = (this.currentNewPage - 1) * this.itemsPerPageNew;
                     const end = start + this.itemsPerPageNew;
                     return sorted.slice(start, end);
@@ -762,67 +1072,123 @@
                 totalNewPages() {
                     return Math.ceil(this.filteredNewData.length / this.itemsPerPageNew);
                 },
-                uniquePerwakilanCount() {
-                    return this.perwakilanList.length;
-                },
                 uniqueNewStatuses() {
-                    const statuses = this.newData.map(item => item.status);
+                    const statuses = this.newData.map((item) => item.status);
                     return [...new Set(statuses)].sort();
                 },
                 uniqueNewDuplikasis() {
-                    const duplikasis = this.newData.map(item => item.duplikasi);
+                    const duplikasis = this.newData.map((item) => item.duplikasi);
                     return [...new Set(duplikasis)].sort();
                 },
                 formattedLastUpdatePerwakilan() {
                     if (!this.lastUpdatePerwakilan) return 'Tidak ada data';
                     return this.lastUpdatePerwakilan.toLocaleString();
+                },
+                countSelesai() {
+                    return this.newData.filter((x) => x.status === 'Selesai').length;
                 }
             },
             methods: {
-                // Existing Methods
-                async fetchData() {
+                async fetchAllData() {
+                    this.fetchData();
+                    this.fetchNewData();
+                },
+                async fetchData(forceUpdate = false) {
                     try {
-                        this.loading = true;
+                        const now = Date.now();
+                        if (!forceUpdate) {
+                            const cached = localStorage.getItem(CACHE_KEY_MAIN);
+                            if (cached) {
+                                const parsed = JSON.parse(cached);
+                                if (now - parsed.timestamp < CACHE_EXPIRATION_MS) {
+                                    this.data = parsed.data;
+                                    this.lastUpdate = parsed.lastUpdate;
+                                    this.processData();
+                                    this.cachedDataLoaded = true;
+                                    return;
+                                }
+                            }
+                        }
                         this.error = null;
                         const response = await fetch(
                             'https://script.google.com/macros/s/AKfycbzfQBSjV1o0fEmrZwCmxHfjGSXp7IgfdoTSqGfyatXhlb17bGwng11onBvpajadBsAg/exec'
                         );
                         const result = await response.json();
-
                         if (result.status === 'success') {
                             this.data = result.data;
                             this.lastUpdate = new Date().toISOString();
                             this.processData();
+                            localStorage.setItem(
+                                CACHE_KEY_MAIN,
+                                JSON.stringify({
+                                    data: this.data,
+                                    lastUpdate: this.lastUpdate,
+                                    timestamp: now
+                                })
+                            );
                         } else {
                             throw new Error(result.message || 'Failed to fetch data');
                         }
                     } catch (err) {
                         console.error('Error fetching data:', err);
                         this.error = 'Failed to load dashboard data. Please try again later.';
-                    } finally {
-                        this.loading = false;
                     }
                 },
-
-                refreshData() {
-                    this.fetchData();
+                async fetchNewData(forceUpdate = false) {
+                    try {
+                        const now = Date.now();
+                        if (!forceUpdate) {
+                            const cached = localStorage.getItem(CACHE_KEY_NEW);
+                            if (cached) {
+                                const parsed = JSON.parse(cached);
+                                if (now - parsed.timestamp < CACHE_EXPIRATION_MS) {
+                                    this.newData = parsed.data;
+                                    this.applyNewFilters();
+                                    this.cachedNewDataLoaded = true;
+                                    return;
+                                }
+                            }
+                        }
+                        this.errorNewData = null;
+                        const response = await fetch(
+                            'https://script.googleusercontent.com/a/macros/biroumumkemlu.id/echo?user_content_key=Vx4-EovqFrs4KT1mmCBs00YbyyiT2obp7QTjNuezNI5YGSlulXLq2onIQcGvD0mddCfi8nCAVuzJKTyEjDCRfGM2txUcnyFuOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKCSYsR_90La1Ls51QzLR1hsTQBA7JY5-616MjY46iumO_Klwo1NOPP5w84VyzRa_MIQEPzd6ljpzfSNlAHsT3vyfNgt7pEzeSObxJZFOoYixm6XMiWsghw3vz-ErrSAoa4YZpTak_o22Q&lib=MXFU0hgndY1PL4M2mwPsafkoU2qvfDcTZ'
+                        );
+                        const result = await response.json();
+                        if (result.status === 'success') {
+                            this.newData = result.data;
+                            localStorage.setItem(
+                                CACHE_KEY_NEW,
+                                JSON.stringify({
+                                    data: this.newData,
+                                    timestamp: now
+                                })
+                            );
+                            this.applyNewFilters();
+                        } else {
+                            throw new Error(result.message || 'Failed to fetch new data');
+                        }
+                    } catch (err) {
+                        console.error('Error fetching new data:', err);
+                        this.errorNewData =
+                            'Failed to load perwakilan status data. Please try again later.';
+                    }
                 },
-
                 processData() {
-                    // Calculate rataTotalKemlu
-                    const validScores = this.data.filter(item => !isNaN(parseFloat(item.nilai_akhir)));
-                    const total = validScores.reduce((sum, item) => sum + parseFloat(item.nilai_akhir), 0);
-                    this.rataTotalKemlu = validScores.length ? total / validScores.length : 0;
-
-                    // Calculate rataKemluPerParameter
+                    const validScores = this.data.filter(
+                        (item) => !isNaN(parseFloat(item.nilai_akhir))
+                    );
+                    const total = validScores.reduce(
+                        (sum, item) => sum + parseFloat(item.nilai_akhir),
+                        0
+                    );
+                    this.rataTotalKemlu = validScores.length
+                        ? total / validScores.length
+                        : 0;
                     const parameterMap = this.data.reduce((acc, item) => {
                         const param = item.nama_parameter;
                         const nilai = parseFloat(item.nilai_akhir);
                         if (!acc[param]) {
-                            acc[param] = {
-                                total: 0,
-                                count: 0
-                            };
+                            acc[param] = { total: 0, count: 0 };
                         }
                         if (!isNaN(nilai)) {
                             acc[param].total += nilai;
@@ -830,32 +1196,28 @@
                         }
                         return acc;
                     }, {});
-
                     this.rataKemluPerParameter = Object.keys(parameterMap).reduce((acc, key) => {
-                        acc[key] = parameterMap[key].count ? parameterMap[key].total / parameterMap[key].count : 0;
+                        acc[key] = parameterMap[key].count
+                            ? parameterMap[key].total / parameterMap[key].count
+                            : 0;
                         return acc;
                     }, {});
-
-                    // Populate perwakilanList
-                    this.perwakilanList = [...new Set(this.data.map(item => item.nama_perwakilan))].sort();
+                    this.perwakilanList = [
+                        ...new Set(this.data.map((item) => item.nama_perwakilan))
+                    ].sort();
                 },
-
                 handleSearch() {
                     this.showDropdown = true;
                 },
-
                 handleBlur(event) {
-                    // Check if the related target is within the dropdown
                     const dropdownContainer = event.target.parentElement;
                     const relatedTarget = event.relatedTarget;
-
                     if (!relatedTarget || !dropdownContainer.contains(relatedTarget)) {
                         setTimeout(() => {
                             this.showDropdown = false;
                         }, 200);
                     }
                 },
-
                 selectPerwakilan(perwakilan) {
                     if (this.selectedPerwakilan === perwakilan) {
                         this.selectedPerwakilan = '';
@@ -865,65 +1227,71 @@
                     } else {
                         this.selectedPerwakilan = perwakilan;
                         this.searchQuery = perwakilan;
-
-                        // Calculate perwakilan average
-                        const filtered = this.data.filter(item => item.nama_perwakilan === this.selectedPerwakilan);
-                        const validScores = filtered.filter(item => !isNaN(parseFloat(item.nilai_akhir)));
-                        const total = validScores.reduce((sum, item) => sum + parseFloat(item.nilai_akhir), 0);
-                        this.rataPerwakilan = validScores.length ? total / validScores.length : 0;
-
-                        // Compute lastUpdatePerwakilan
-                        const perwakilanItems = this.data.filter(item => item.nama_perwakilan === this.selectedPerwakilan && item.timestamp);
+                        const filtered = this.data.filter(
+                            (item) => item.nama_perwakilan === this.selectedPerwakilan
+                        );
+                        const validScores = filtered.filter(
+                            (item) => !isNaN(parseFloat(item.nilai_akhir))
+                        );
+                        const total = validScores.reduce(
+                            (sum, item) => sum + parseFloat(item.nilai_akhir),
+                            0
+                        );
+                        this.rataPerwakilan = validScores.length
+                            ? total / validScores.length
+                            : 0;
+                        const perwakilanItems = this.data.filter(
+                            (item) =>
+                                item.nama_perwakilan === this.selectedPerwakilan && item.timestamp
+                        );
                         if (perwakilanItems.length) {
-                            this.lastUpdatePerwakilan = new Date(Math.max(...perwakilanItems.map(item => new Date(item.timestamp))));
+                            this.lastUpdatePerwakilan = new Date(
+                                Math.max(...perwakilanItems.map((item) => new Date(item.timestamp)))
+                            );
                         } else {
                             this.lastUpdatePerwakilan = null;
                         }
                     }
                     this.showDropdown = false;
                 },
-
                 getAverageKemlu(nama_parameter) {
                     return this.rataKemluPerParameter[nama_parameter] || 0;
                 },
-
                 getAveragePerwakilan(nama_parameter) {
                     if (!this.selectedPerwakilan) return 0;
-
-                    const filtered = this.data.filter(item =>
-                        item.nama_perwakilan === this.selectedPerwakilan &&
-                        item.nama_parameter === nama_parameter
+                    const filtered = this.data.filter(
+                        (item) =>
+                            item.nama_perwakilan === this.selectedPerwakilan &&
+                            item.nama_parameter === nama_parameter
                     );
-
                     if (filtered.length === 0) return 0;
-
-                    const validScores = filtered.filter(item => !isNaN(parseFloat(item.nilai_akhir)));
+                    const validScores = filtered.filter(
+                        (item) => !isNaN(parseFloat(item.nilai_akhir))
+                    );
                     if (validScores.length === 0) return 0;
-
-                    const total = validScores.reduce((sum, item) => sum + parseFloat(item.nilai_akhir), 0);
+                    const total = validScores.reduce(
+                        (sum, item) => sum + parseFloat(item.nilai_akhir),
+                        0
+                    );
                     return total / validScores.length;
                 },
-
                 getBuktiDukung(nama_parameter) {
                     if (!this.selectedPerwakilan) return [];
-
-                    const items = this.data.filter(item =>
-                        item.nama_perwakilan === this.selectedPerwakilan &&
-                        item.nama_parameter === nama_parameter
+                    const items = this.data.filter(
+                        (item) =>
+                            item.nama_perwakilan === this.selectedPerwakilan &&
+                            item.nama_parameter === nama_parameter
                     );
-
                     if (items.length === 0) return [];
-
                     const buktiList = [];
-                    items.forEach(item => {
+                    items.forEach((item) => {
                         for (let i = 1; i <= 5; i++) {
                             const key = `bukti_dukung_${i}`;
                             if (item[key]) {
                                 const links = item[key]
                                     .split(',')
-                                    .map(link => link.trim())
-                                    .filter(link => link);
-
+                                    .map((link) => link.trim())
+                                    .filter((link) => link);
                                 links.forEach((link, index) => {
                                     buktiList.push({
                                         url: link,
@@ -935,7 +1303,6 @@
                     });
                     return buktiList;
                 },
-
                 sortTable(key) {
                     if (this.sortKey === key) {
                         this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
@@ -944,71 +1311,43 @@
                         this.sortOrder = 'asc';
                     }
                 },
-
+                changePage(page) {
+                    if (page < 1) return;
+                    if (page > this.totalPages) return;
+                    this.currentPage = page;
+                },
                 exportToCSV() {
                     const headers = ['Parameter Name', 'Kemlu Average'];
                     if (this.selectedPerwakilan) {
                         headers.push(`${this.selectedPerwakilan} Average`);
                     }
-
-                    const rows = this.sortedData.map(item => {
-                        const row = [
-                            item.nama_parameter,
-                            item.rata_kemlu.toFixed(2)
-                        ];
-                        if (this.selectedPerwakilan) {
-                            row.push(item.rata_perwakilan.toFixed(2));
-                        }
-                        return row;
+                    const allParams = Object.keys(this.rataKemluPerParameter);
+                    const allRows = allParams.map((param) => {
+                        const kemluVal = this.rataKemluPerParameter[param].toFixed(2);
+                        const perwakilanVal = this.selectedPerwakilan
+                            ? this.getAveragePerwakilan(param).toFixed(2)
+                            : null;
+                        return [
+                            param,
+                            kemluVal,
+                            this.selectedPerwakilan ? perwakilanVal : null
+                        ]
+                            .filter((v) => v !== null)
+                            .join(',');
                     });
-
-                    const csvContent = [
-                        headers.join(','),
-                        ...rows.map(row => row.join(','))
-                    ].join('\n');
-
-                    const blob = new Blob([csvContent], {
-                        type: 'text/csv;charset=utf-8;'
-                    });
+                    const csvContent = [headers.join(','), ...allRows].join('\n');
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
                     const link = document.createElement('a');
                     const url = URL.createObjectURL(blob);
-
                     link.setAttribute('href', url);
-                    link.setAttribute('download',
-                        `kemlu-dashboard-export-${new Date().toISOString().split('T')[0]}.csv`);
+                    link.setAttribute(
+                        'download',
+                        `kemlu-dashboard-export-${new Date().toISOString().split('T')[0]}.csv`
+                    );
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                 },
-
-                // New Methods for Unique Perwakilan Count
-                // Already handled by computed property 'uniquePerwakilanCount'
-
-                // New Data Fetch Method
-                async fetchNewData() {
-                    try {
-                        this.loadingNewData = true;
-                        this.errorNewData = null;
-                        const response = await fetch(
-                            'https://script.googleusercontent.com/a/macros/biroumumkemlu.id/echo?user_content_key=Vx4-EovqFrs4KT1mmCBs00YbyyiT2obp7QTjNuezNI5YGSlulXLq2onIQcGvD0mddCfi8nCAVuzJKTyEjDCRfGM2txUcnyFuOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKCSYsR_90La1Ls51QzLR1hsTQBA7JY5-616MjY46iumO_Klwo1NOPP5w84VyzRa_MIQEPzd6ljpzfSNlAHsT3vyfNgt7pEzeSObxJZFOoYixm6XMiWsghw3vz-ErrSAoa4YZpTak_o22Q&lib=MXFU0hgndY1PL4M2mwPsafkoU2qvfDcTZ'
-                        );
-                        const result = await response.json();
-
-                        if (result.status === 'success') {
-                            this.newData = result.data;
-                            this.applyNewFilters(); // Apply initial filters
-                        } else {
-                            throw new Error(result.message || 'Failed to fetch new data');
-                        }
-                    } catch (err) {
-                        console.error('Error fetching new data:', err);
-                        this.errorNewData = 'Failed to load perwakilan status data. Please try again later.';
-                    } finally {
-                        this.loadingNewData = false;
-                    }
-                },
-
-                // Sorting for New Data Table
                 sortNewData(key) {
                     if (this.sortNewKey === key) {
                         this.sortNewOrder = this.sortNewOrder === 'asc' ? 'desc' : 'asc';
@@ -1017,50 +1356,36 @@
                         this.sortNewOrder = 'asc';
                     }
                 },
-
-                // Pagination for New Data Table
                 changeNewPage(page) {
                     if (page < 1) return;
                     if (page > this.totalNewPages) return;
                     this.currentNewPage = page;
                 },
-
-                // Export New Data to CSV
                 exportNewDataToCSV() {
                     const headers = ['Nama', 'Status', 'Duplikasi'];
-                    const rows = this.filteredNewData.map(item => [
+                    const rows = this.filteredNewData.map((item) => [
                         item.nama,
                         item.status,
                         item.duplikasi
                     ]);
-                    const sortedRows = this.sortedNewData.map(item => [
-                        item.nama,
-                        item.status,
-                        item.duplikasi
-                    ]);
-
                     const csvContent = [
                         headers.join(','),
-                        ...sortedRows.map(row => row.join(','))
+                        ...rows.map((row) => row.join(','))
                     ].join('\n');
-
-                    const blob = new Blob([csvContent], {
-                        type: 'text/csv;charset=utf-8;'
-                    });
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
                     const link = document.createElement('a');
                     const url = URL.createObjectURL(blob);
-
                     link.setAttribute('href', url);
-                    link.setAttribute('download',
-                        `perwakilan-status-export-${new Date().toISOString().split('T')[0]}.csv`);
+                    link.setAttribute(
+                        'download',
+                        `perwakilan-status-export-${new Date().toISOString().split('T')[0]}.csv`
+                    );
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                 },
-
-                // New Methods for Search and Filters
                 applyNewFilters() {
-                    this.filteredNewData = this.newData.filter(item => {
+                    this.filteredNewData = this.newData.filter((item) => {
                         const matchesNama = this.searchNewNama
                             ? item.nama.toLowerCase().includes(this.searchNewNama.toLowerCase())
                             : true;
@@ -1072,17 +1397,28 @@
                             : true;
                         return matchesNama && matchesStatus && matchesDuplikasi;
                     });
-                    this.currentNewPage = 1; // Reset to first page after filtering
+                    this.currentNewPage = 1;
                 },
+                updateDataManually() {
+                    this.isManualUpdating = true;
+                    Promise.all([this.fetchData(true), this.fetchNewData(true)]).finally(() => {
+                        this.isManualUpdating = false;
+                    });
+                }
             },
             mounted() {
-                this.fetchData();
-                this.fetchNewData();
+                this.fetchAllData();
+                this.applyNewFilters();
+                setInterval(() => {
+                    this.autoPolling = true;
+                    Promise.all([this.fetchData(true), this.fetchNewData(true)]).finally(() => {
+                        this.autoPolling = false;
+                    });
+                }, 60000);
             }
         });
 
         app.mount('#app');
     </script>
 </body>
-
 </html>
