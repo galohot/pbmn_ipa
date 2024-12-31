@@ -344,7 +344,7 @@
                                 </div>
 
                                 <!-- Search Section -->
-                                <div class="mb-8 rounded-lg bg-white p- my-2 shadow-sm">
+                                <div class="p- my-2 mb-8 rounded-lg bg-white shadow-sm">
                                     <div class="flex flex-col md:flex-row md:items-start md:space-x-4">
                                         <div class="flex-1">
                                             <label for="perwakilan"
@@ -704,6 +704,42 @@
                 </div>
 
                 <div class="card-kemenlu overflow-hidden">
+                    <!-- Search Section -->
+                    <div class="p- my-2 mb-8 rounded-lg bg-white shadow-sm">
+                        <div class="flex flex-col md:flex-row md:items-start md:space-x-4">
+                            <div class="flex-1">
+                                <label for="perwakilan" class="mb-2 block text-sm font-medium text-gray-700">
+                                    Filter by Nama Perwakilan
+                                    <span class="mt-1 block text-sm font-normal text-gray-500">
+                                        Ketik nama perwakilan di kolom pencarian jika dropdown items tidak
+                                        muncul
+                                    </span>
+                                </label>
+                                <div class="relative">
+                                    <input type="text" id="perwakilan" v-model="searchQuery"
+                                        @focus="showDropdown = true" @blur="handleBlur" @input="handleSearch"
+                                        placeholder="Search Perwakilan..."
+                                        class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
+
+                                    <!-- Dropdown -->
+                                    <div v-show="showDropdown"
+                                        class="dropdown-list custom-scrollbar absolute z-10 mt-1 max-h-40 w-full overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                                        @mousedown.prevent>
+                                        <template v-if="filteredPerwakilanList.length">
+                                            <div v-for="perwakilan in filteredPerwakilanList" :key="perwakilan"
+                                                @mousedown="selectPerwakilan(perwakilan)"
+                                                class="dropdown-item cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                {{ perwakilan }}
+                                            </div>
+                                        </template>
+                                        <div v-else class="px-4 py-3 text-center text-sm text-gray-500">
+                                            No results found
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Header -->
                     <div class="mb-4 flex items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-700">Performance Details</h2>
