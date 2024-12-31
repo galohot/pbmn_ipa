@@ -1,1816 +1,1618 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <meta
-    name="description"
-    content="Kemlu Dashboard - Ministry of Foreign Affairs Performance Monitoring System"
-  />
-  <meta name="theme-color" content="#3C59A7" />
-  <title>DASHBOARD IPA SATKER BY BUM</title>
-  <link
-    rel="icon"
-    href="https://lh3.googleusercontent.com/d/1YJ5QUeb-ekUYZbXIK_WuBWNi-RvhC40o"
-    type="image/png"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
-    rel="stylesheet"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
-    rel="stylesheet"
-  />
-  <style>
-    :root {
-      --kemenlu-navy-500: #3C59A7;
-      --kemenlu-navy-600: #304786;
-      --kemenlu-navy-700: #243665;
-      --kemenlu-green-500: #10B981;
-      --kemenlu-green-600: #059669;
-      --kemenlu-green-700: #047857;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kemlu Dashboard - Ministry of Foreign Affairs Performance Monitoring System" />
+    <meta name="theme-color" content="#3C59A7" />
+    <title>DASHBOARD IPA SATKER BY BUM</title>
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1YJ5QUeb-ekUYZbXIK_WuBWNi-RvhC40o" type="image/png" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --kemenlu-navy-500: #3C59A7;
+            --kemenlu-navy-600: #304786;
+            --kemenlu-navy-700: #243665;
+            --kemenlu-green-500: #10B981;
+            --kemenlu-green-600: #059669;
+            --kemenlu-green-700: #047857;
+        }
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    .btn-kemenlu {
-      background-color: var(--kemenlu-navy-500);
-      color: #ffffff;
-      padding: 0.625rem 1.25rem;
-      border-radius: 0.5rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease-in-out;
-      border: 2px solid transparent;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-    .btn-kemenlu:hover {
-      background-color: var(--kemenlu-navy-600);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .btn-kemenlu:active {
-      background-color: var(--kemenlu-navy-700);
-      transform: translateY(0);
-    }
+        .btn-kemenlu {
+            background-color: var(--kemenlu-navy-500);
+            color: #ffffff;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease-in-out;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
 
-    .btn-download {
-      background-color: var(--kemenlu-green-500);
-      color: #ffffff;
-      padding: 0.375rem 0.75rem;
-      border-radius: 0.375rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      transition: all 0.2s ease-in-out;
-      border: 1px solid transparent;
-    }
-    .btn-download:hover {
-      background-color: var(--kemenlu-green-600);
-      transform: translateY(-1px);
-    }
-    .btn-download:active {
-      background-color: var(--kemenlu-green-700);
-      transform: translateY(0);
-    }
+        .btn-kemenlu:hover {
+            background-color: var(--kemenlu-navy-600);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-    .card-kemenlu {
-      background-color: #ffffff;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05),
-        0 8px 10px -6px rgba(0, 0, 0, 0.03);
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-    .card-kemenlu:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08),
-        0 10px 20px -8px rgba(0, 0, 0, 0.05);
-    }
+        .btn-kemenlu:active {
+            background-color: var(--kemenlu-navy-700);
+            transform: translateY(0);
+        }
 
-    .dropdown-container {
-      position: relative;
-      width: 100%;
-      max-width: 24rem;
-    }
-    .dropdown-input {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 2px solid #e5e7eb;
-      border-radius: 0.5rem;
-      font-size: 0.875rem;
-      transition: all 0.2s ease;
-      background-color: #ffffff;
-    }
-    .dropdown-input:focus {
-      outline: none;
-      border-color: var(--kemenlu-navy-500);
-      box-shadow: 0 0 0 3px rgba(60, 89, 167, 0.1);
-    }
-    .dropdown-list {
-      position: absolute;
-      top: calc(100% + 0.25rem);
-      left: 0;
-      right: 0;
-      max-height: 15rem;
-      overflow-y: auto;
-      background-color: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 0.5rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      z-index: 50;
-    }
-    .dropdown-item {
-      padding: 0.75rem 1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .dropdown-item:hover {
-      background-color: #f3f4f6;
-      color: var(--kemenlu-navy-500);
-    }
+        .btn-download {
+            background-color: var(--kemenlu-green-500);
+            color: #ffffff;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            transition: all 0.2s ease-in-out;
+            border: 1px solid transparent;
+        }
 
-    .custom-scrollbar {
-      scrollbar-width: thin;
-      scrollbar-color: #cbd5e1 #f1f5f9;
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: #f1f5f9;
-      border-radius: 3px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background-color: #cbd5e1;
-      border-radius: 3px;
-      border: 2px solid #f1f5f9;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background-color: #94a3b8;
-    }
+        .btn-download:hover {
+            background-color: var(--kemenlu-green-600);
+            transform: translateY(-1px);
+        }
 
-    .loading-spinner,
-    .mini-loading-spinner {
-      border-radius: 50%;
-      border-top-color: transparent;
-      animation: spin 1s linear infinite;
-    }
-    .loading-spinner {
-      width: 3rem;
-      height: 3rem;
-      border: 0.25rem solid var(--kemenlu-navy-500);
-    }
-    .mini-loading-spinner {
-      width: 1rem;
-      height: 1rem;
-      border: 2px solid var(--kemenlu-navy-500);
-    }
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-    .background-loader {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
-    .manual-update-loader {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-    }
+        .btn-download:active {
+            background-color: var(--kemenlu-green-700);
+            transform: translateY(0);
+        }
 
-    /* We'll leverage a simple transition for adding/removing feed items */
-    .feed-enter-active,
-    .feed-leave-active {
-      transition: all 0.5s ease;
-    }
-    .feed-enter {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    .feed-enter-to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .feed-leave {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .feed-leave-to {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-  </style>
+        .card-kemenlu {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05),
+                0 8px 10px -6px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card-kemenlu:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08),
+                0 10px 20px -8px rgba(0, 0, 0, 0.05);
+        }
+
+        .dropdown-container {
+            position: relative;
+            width: 100%;
+            max-width: 24rem;
+        }
+
+        .dropdown-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            background-color: #ffffff;
+        }
+
+        .dropdown-input:focus {
+            outline: none;
+            border-color: var(--kemenlu-navy-500);
+            box-shadow: 0 0 0 3px rgba(60, 89, 167, 0.1);
+        }
+
+        .dropdown-list {
+            position: absolute;
+            top: calc(100% + 0.25rem);
+            left: 0;
+            right: 0;
+            max-height: 15rem;
+            overflow-y: auto;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            z-index: 50;
+        }
+
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f3f4f6;
+            color: var(--kemenlu-navy-500);
+        }
+
+        .custom-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 3px;
+            border: 2px solid #f1f5f9;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #94a3b8;
+        }
+
+        .loading-spinner,
+        .mini-loading-spinner {
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-spinner {
+            width: 3rem;
+            height: 3rem;
+            border: 0.25rem solid var(--kemenlu-navy-500);
+        }
+
+        .mini-loading-spinner {
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid var(--kemenlu-navy-500);
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .background-loader {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .manual-update-loader {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        /* We'll leverage a simple transition for adding/removing feed items */
+        .feed-enter-active,
+        .feed-leave-active {
+            transition: all 0.5s ease;
+        }
+
+        .feed-enter {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .feed-enter-to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feed-leave {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feed-leave-to {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+    </style>
 </head>
+
 <body class="bg-gray-50">
-  <header class="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <div class="flex items-center gap-3 sm:gap-4">
-          <img
-            src="https://lh3.googleusercontent.com/d/1NY5Ncxw9q2zWS5OH2QAMVbkzKDJT4wl0"
-            alt="Kementerian Luar Negeri Logo"
-            class="h-10 w-auto sm:h-12"
-            loading="eager"
-          />
-          <div class="flex flex-col justify-center">
-            <h1 class="text-lg font-bold text-gray-900 sm:text-xl lg:text-2xl">
-              IPA SATKER 2025
-            </h1>
-            <p class="text-xs text-gray-600 sm:text-sm">
-              Bagian PBMN, Biro Umum, KEMLU
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="mx-auto max-w-7xl px-6 py-8">
-    <div id="app">
-      <!-- Error if Main Data fails -->
-      <div v-if="error && !cachedDataLoaded" class="mx-auto mt-8 max-w-lg">
-        <div class="rounded-r-lg border-l-4 border-red-500 bg-red-50 p-6">
-          <div class="flex items-start space-x-3">
-            <div class="flex-shrink-0">
-              <svg
-                class="h-6 w-6 text-red-500"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-medium text-red-800">
-                Error Loading Data
-              </h3>
-              <p class="mt-1 text-red-700">{{ error }}</p>
-              <button
-                @click="fetchAllData"
-                class="mt-4 inline-flex items-center space-x-2 font-medium text-red-600 hover:text-red-500"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </svg>
-                <span>Try Again</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Error if New Data fails -->
-      <div v-if="errorNewData && !cachedNewDataLoaded" class="mx-auto mt-8 max-w-lg">
-        <div class="rounded-r-lg border-l-4 border-red-500 bg-red-50 p-6">
-          <div class="flex items-start space-x-3">
-            <div class="flex-shrink-0">
-              <svg
-                class="h-6 w-6 text-red-500"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-medium text-red-800">
-                Error Loading Data
-              </h3>
-              <p class="mt-1 text-red-700">{{ errorNewData }}</p>
-              <button
-                @click="fetchAllData"
-                class="mt-4 inline-flex items-center space-x-2 font-medium text-red-600 hover:text-red-500"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </svg>
-                <span>Try Again</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Dashboard Content (if no errors) -->
-      <div v-show="!error && !errorNewData" class="space-y-8">
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div class="col-span-1 md:col-span-2 lg:col-span-3">
-            <!-- Update Data Button with limitation -->
-            <p style="font-size: 0.8em; color: #6c757d;">
-              Update otomatis setiap 2 menit dan/atau saat website refresh
-            </p>
-            <button
-              class="btn-kemenlu mb-5 mt-1 py-1 text-sm"
-              @click="updateDataManually"
-              :disabled="isManualUpdating"
-              :class="{
-                'opacity-50 cursor-not-allowed': isManualUpdating
-              }"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="mr-1 h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                :class="{
-                  'animate-spin animate-infinite animate-ease-in-out': isManualUpdating
-                }"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-              </svg>
-              <span>{{ isManualUpdating ? 'Updating...' : 'Update Data' }}</span>
-            </button>
-
-            <!-- Latest Feed Cards beside Search -->
-            <div class="flex flex-col md:flex-row md:items-start md:space-x-4">
-              <!-- Filter perwakilan + search input -->
-              <div class="flex-1 mb-4 md:mb-0">
-                <label for="perwakilan" class="mb-2 block text-sm font-medium text-gray-700">
-                  Filter by Nama Perwakilan <br />
-                  <span>
-                    Ketik nama perwakilan di kolom pencarian jika dropdown items tidak muncul
-                  </span>
-                </label>
-                <div class="dropdown-container">
-                  <input
-                    type="text"
-                    id="perwakilan"
-                    v-model="searchQuery"
-                    @focus="showDropdown = true"
-                    @blur="handleBlur"
-                    @input="handleSearch"
-                    placeholder="Search Perwakilan..."
-                    class="dropdown-input"
-                  />
-                  <div
-                    v-show="showDropdown"
-                    class="dropdown-list custom-scrollbar"
-                    @mousedown.prevent
-                  >
-                    <template v-if="filteredPerwakilanList.length">
-                      <div
-                        v-for="perwakilan in filteredPerwakilanList"
-                        :key="perwakilan"
-                        @mousedown="selectPerwakilan(perwakilan)"
-                        class="dropdown-item"
-                      >
-                        {{ perwakilan }}
-                      </div>
-                    </template>
-                    <div v-else class="p-4 text-center text-gray-500">
-                      No results found
+    <!-- <header class="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <img src="https://lh3.googleusercontent.com/d/1NY5Ncxw9q2zWS5OH2QAMVbkzKDJT4wl0"
+                        alt="Kementerian Luar Negeri Logo" class="h-10 w-auto sm:h-12" loading="eager" />
+                    <div class="flex flex-col justify-center">
+                        <h1 class="text-lg font-bold text-gray-900 sm:text-xl lg:text-2xl">
+                            IPA SATKER 2025
+                        </h1>
+                        <p class="text-xs text-gray-600 sm:text-sm">
+                            Bagian PBMN, Biro Umum, KEMLU
+                        </p>
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
+        </div>
+    </header> -->
 
-              <!-- Latest Feeds (max 5) -->
-              <transition-group
-                name="feed"
-                tag="div"
-                class="space-y-2 flex-1"
-                style="max-width: 400px;"
-              >
-                <div
-                  v-for="activity in latestActivities"
-                  :key="activity.id"
-                  class="card-kemenlu p-3 relative"
-                  style="margin-bottom: 0.5rem;"
-                >
-                  <p class="text-sm text-gray-700">
-                    <strong>{{ activity.nama_perwakilan }}</strong>
-                    telah selesai melaksanakan penilaian mandiri pada
-                    <span class="font-semibold">{{ new Date(activity.timestamp).toLocaleString() }}</span>
-                  </p>
+    <main class="mx-auto max-w-7xl px-6 py-8">
+        <div id="app">
+            <!-- Error if Main Data fails -->
+            <div v-if="error && !cachedDataLoaded" class="mx-auto mt-8 max-w-lg">
+                <div class="rounded-r-lg border-l-4 border-red-500 bg-red-50 p-6">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-red-800">
+                                Error Loading Data
+                            </h3>
+                            <p class="mt-1 text-red-700">{{ error }}</p>
+                            <button @click="fetchAllData"
+                                class="mt-4 inline-flex items-center space-x-2 font-medium text-red-600 hover:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                <span>Try Again</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-              </transition-group>
             </div>
-          </div>
-        </div>
 
-        <!-- Cards Top -->
-        <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <!-- Rata-rata Total Kemlu -->
-          <div class="card-kemenlu">
-            <div class="flex items-center justify-between">
-              <div>
-                <h2 class="text-lg font-medium text-gray-700">
-                  Rata-rata Total Kemlu
-                </h2>
-                <p class="mt-1 text-sm text-gray-500">
-                  Rata-rata nilai IPA Kementerian Luar Negeri RI
-                </p>
-              </div>
-              <div class="rounded-full bg-blue-50 p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-blue-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </div>
+            <!-- Error if New Data fails -->
+            <div v-if="errorNewData && !cachedNewDataLoaded" class="mx-auto mt-8 max-w-lg">
+                <div class="rounded-r-lg border-l-4 border-red-500 bg-red-50 p-6">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium text-red-800">
+                                Error Loading Data
+                            </h3>
+                            <p class="mt-1 text-red-700">{{ errorNewData }}</p>
+                            <button @click="fetchAllData"
+                                class="mt-4 inline-flex items-center space-x-2 font-medium text-red-600 hover:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                <span>Try Again</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mt-4">
-              <p class="text-4xl font-bold text-blue-700">
-                {{ rataTotalKemlu.toFixed(2) }}
-              </p>
-            </div>
-          </div>
 
-          <!-- Rata-rata Perwakilan -->
-          <div v-if="selectedPerwakilan" class="card-kemenlu">
-            <div class="flex items-center justify-between">
-              <div>
-                <h2 class="text-lg font-medium text-gray-700">
-                  Rata-rata {{ selectedPerwakilan }}
-                </h2>
-                <p class="mt-1 text-sm text-gray-500">Nilai Perwakilan</p>
-              </div>
-              <div class="rounded-full bg-green-50 p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-green-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="mt-4">
-              <p class="text-4xl font-bold text-green-600">
-                {{ rataPerwakilan.toFixed(2) }}
-              </p>
-              <div class="mt-2 flex items-center">
-                <span
-                  class="text-sm"
-                  :class="rataPerwakilan >= rataTotalKemlu ? 'text-green-600' : 'text-yellow-600'"
-                >
-                  {{
-                    rataPerwakilan >= rataTotalKemlu
-                      ? 'Diatas rata-rata KEMLU'
-                      : 'Dibawah rata-rata KEMLU'
-                  }}
-                </span>
-              </div>
-              <p class="mt-2 text-sm text-gray-500">
-                diinput pada {{ formattedLastUpdatePerwakilan }}
-              </p>
-            </div>
-          </div>
+            <!-- Main Dashboard Content (if no errors) -->
+            <div v-show="!error && !errorNewData" class="space-y-8">
+                <div class="min-h-screen bg-gray-50 py-5">
+                    <div class="mx-auto max-w-7xl">
+                        <!-- Main Grid Container -->
+                        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                            <!-- Header Section - Full Width -->
+                            <div class="col-span-1 md:col-span-2 lg:col-span-3">
+                                <div class="mb-6 flex items-center justify-between">
+                                    <div>
+                                        <h1 class="text-2xl font-bold text-gray-900">Dashboard IPA</h1>
+                                        <p class="mt-1 text-sm text-gray-500">
+                                            Update otomatis setiap 2 menit dan/atau saat website refresh
+                                        </p>
+                                    </div>
 
-          <!-- Jumlah Satker Selesai -->
-          <div class="card-kemenlu">
-            <div class="flex items-center justify-between">
-              <div>
-                <h2 class="text-lg font-medium text-gray-700">Satuan Kerja</h2>
-                <p class="mt-1 text-sm text-gray-500">
-                  Jumlah Satker yang Selesai
-                </p>
-              </div>
-              <div class="rounded-full bg-purple-50 p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-purple-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 20h5v-5M17 4h5v5M4 20h5v-5M4 4h5v5"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="mt-4">
-              <p class="text-4xl font-bold text-purple-700">
-                {{ countSelesai }}
-              </p>
-              <div class="mt-2 flex items-center">
-                <span class="text-sm text-gray-600">
-                  Total Selesai
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+                                    <!-- Update Button -->
+                                    <!-- <button class="btn-kemenlu py-1 text-sm" @click="updateDataManually"
+                                        :disabled="isManualUpdating"
+                                        :class="{ 'opacity-50 cursor-not-allowed': isManualUpdating }">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+                                            :class="{ 'animate-spin': isManualUpdating }" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                        </svg>
+                                        <span>{{ isManualUpdating ? 'Synchronizing...' : 'Sync' }}</span>
+                                    </button> -->
+                                </div>
 
-        <!-- Table IPA -->
-        <div class="card-kemenlu overflow-hidden">
-          <div class="mb-4 flex items-center justify-between">
-            <h2 class="text-lg font-medium text-gray-700">
-              Performance Details
-            </h2>
-            <div class="flex items-center space-x-2">
-              <button class="btn-kemenlu py-1 text-sm" @click="exportToCSV">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="mr-1 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                Export Data
-              </button>
-            </div>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-50">
-                <tr>
-                  <th
-                    @click="sortTable('nama_parameter')"
-                    class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100"
-                  >
-                    <div class="flex items-center space-x-1">
-                      <span>Parameter Name</span>
-                      <span class="text-gray-400 group-hover:text-gray-500">
-                        <svg
-                          v-if="sortKey === 'nama_parameter'"
-                          :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
-                          class="h-4 w-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
+                                <!-- Search Section -->
+                                <div class="mb-8 rounded-lg bg-white p-6 shadow-sm">
+                                    <div class="flex flex-col md:flex-row md:items-start md:space-x-4">
+                                        <div class="flex-1">
+                                            <label for="perwakilan"
+                                                class="mb-2 block text-sm font-medium text-gray-700">
+                                                Filter by Nama Perwakilan
+                                                <span class="mt-1 block text-sm font-normal text-gray-500">
+                                                    Ketik nama perwakilan di kolom pencarian jika dropdown items tidak
+                                                    muncul
+                                                </span>
+                                            </label>
+                                            <div class="relative">
+                                                <input type="text" id="perwakilan" v-model="searchQuery"
+                                                    @focus="showDropdown = true" @blur="handleBlur"
+                                                    @input="handleSearch" placeholder="Search Perwakilan..."
+                                                    class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
+
+                                                <!-- Dropdown -->
+                                                <div v-show="showDropdown"
+                                                    class="dropdown-list custom-scrollbar absolute z-10 mt-1 max-h-40 w-full overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                                                    @mousedown.prevent>
+                                                    <template v-if="filteredPerwakilanList.length">
+                                                        <div v-for="perwakilan in filteredPerwakilanList"
+                                                            :key="perwakilan"
+                                                            @mousedown="selectPerwakilan(perwakilan)"
+                                                            class="dropdown-item cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                            {{ perwakilan }}
+                                                        </div>
+                                                    </template>
+                                                    <div v-else class="px-4 py-3 text-center text-sm text-gray-500">
+                                                        No results found
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- News Feed Section -->
+                            <div class="rounded-lg bg-white p-6 shadow-sm">
+                                <div class="mb-4">
+                                    <h2 class="text-lg font-semibold text-gray-900">News Feeds</h2>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Info terkini terkait penilaiian mandiri IPA Satuan Kerja
+                                    </p>
+                                </div>
+
+                                <transition-group name="feed" tag="div" class="space-y-4">
+                                    <div v-for="activity in latestActivities" :key="activity.id"
+                                        class="rounded-lg border border-gray-100 p-4 transition hover:shadow-md">
+                                        <span
+                                            class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                                            new
+                                        </span>
+                                        <p class="mt-2 text-sm text-gray-600">
+                                            <strong
+                                                class="font-medium text-gray-900">{{ activity . nama_perwakilan }}</strong>
+                                            menyelesaikan penilaian mandiri pada
+                                            <span class="mt-1 block text-gray-500">
+                                                {{ new Date(activity . timestamp) . toLocaleString() }}
+                                            </span>
+                                        </p>
+                                    </div>
+                                </transition-group>
+                            </div>
+
+                            <!-- Top Satkers Section -->
+                            <div class="rounded-lg bg-white p-6 shadow-sm md:col-span-2">
+                                <div class="mb-4">
+                                    <h2 class="text-lg font-semibold text-gray-900">Top Satkers</h2>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Satker diurutkan berdasarkan Nilai Tertinggi lalu penginputan lebih awal
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        Highest Average IPA (max 10)
+                                    </p>
+                                </div>
+
+                                <!-- Table for larger screens, hidden on mobile -->
+                                <div class="hidden md:block">
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead class="bg-gray-50">
+                                                <tr>
+                                                    <th
+                                                        class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                        Nama Satker
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                        Average Nilai Akhir
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                        Earliest Timestamp
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-gray-200">
+                                                <tr v-for="satker in paginatedTopSatkers" :key="satker.nama_perwakilan"
+                                                    class="transition-colors hover:bg-gray-50">
+                                                    <td class="px-6 py-4 text-sm font-medium text-gray-900">
+                                                        {{ satker . nama_perwakilan }}
+                                                    </td>
+                                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                                        {{ satker . average . toFixed(2) }}
+                                                    </td>
+                                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                                        {{ new Date(satker . earliestTimestamp) . toLocaleString() }}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- Card view for mobile screens -->
+                                <div class="space-y-4 md:hidden">
+                                    <div v-for="satker in paginatedTopSatkers" :key="satker.nama_perwakilan"
+                                        class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+                                        <div class="space-y-2">
+                                            <div>
+                                                <div class="text-xs font-medium uppercase text-gray-500">Nama Satker
+                                                </div>
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    {{ satker . nama_perwakilan }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="text-xs font-medium uppercase text-gray-500">Average Nilai
+                                                    Akhir</div>
+                                                <div class="text-sm text-gray-900">{{ satker . average . toFixed(2) }}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="text-xs font-medium uppercase text-gray-500">Earliest
+                                                    Timestamp</div>
+                                                <div class="text-sm text-gray-900">
+                                                    {{ new Date(satker . earliestTimestamp) . toLocaleString() }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pagination -->
+                                <div
+                                    class="mt-6 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-4 sm:flex-row">
+                                    <button @click="changeTopSatkersPage(topSatkersCurrentPage - 1)"
+                                        :disabled="topSatkersCurrentPage === 1"
+                                        class="inline-flex items-center gap-1 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50">
+                                        <svg class="h-4 w-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                        Previous
+                                    </button>
+
+                                    <span class="text-sm text-gray-600">
+                                        Page {{ topSatkersCurrentPage }} of {{ topSatkersTotalPages }}
+                                    </span>
+
+                                    <button @click="changeTopSatkersPage(topSatkersCurrentPage + 1)"
+                                        :disabled="topSatkersCurrentPage === topSatkersTotalPages"
+                                        class="inline-flex items-center gap-1 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50">
+                                        Next
+                                        <svg class="h-4 w-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </th>
-                  <th
-                    @click="sortTable('rata_kemlu')"
-                    class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100"
-                  >
-                    <div class="flex items-center space-x-1">
-                      <span>Kemlu Average</span>
-                      <span class="text-gray-400 group-hover:text-gray-500">
-                        <svg
-                          v-if="sortKey === 'rata_kemlu'"
-                          :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
-                          class="h-4 w-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
+                </div>
+
+                <!-- Cards Top -->
+                <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <!-- Rata-rata Total Kemlu -->
+                    <div class="card-kemenlu">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-lg font-medium text-gray-700">
+                                    Rata-rata Total Kemlu
+                                </h2>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    Rata-rata nilai IPA Kementerian Luar Negeri RI
+                                </p>
+                            </div>
+                            <div class="rounded-full bg-blue-50 p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-4xl font-bold text-blue-700">
+                                {{ rataTotalKemlu . toFixed(2) }}
+                            </p>
+                        </div>
                     </div>
-                  </th>
-                  <th
-                    v-if="selectedPerwakilan"
-                    @click="sortTable('rata_perwakilan')"
-                    class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100"
-                  >
-                    <div class="flex items-center space-x-1">
-                      <span>{{ selectedPerwakilan }} Average</span>
-                      <span class="text-gray-400 group-hover:text-gray-500">
-                        <svg
-                          v-if="sortKey === 'rata_perwakilan'"
-                          :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
-                          class="h-4 w-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
+
+                    <!-- Rata-rata Perwakilan -->
+                    <div v-if="selectedPerwakilan" class="card-kemenlu">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-lg font-medium text-gray-700">
+                                    Rata-rata {{ selectedPerwakilan }}
+                                </h2>
+                                <p class="mt-1 text-sm text-gray-500">Nilai Perwakilan</p>
+                            </div>
+                            <div class="rounded-full bg-green-50 p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-4xl font-bold text-green-600">
+                                {{ rataPerwakilan . toFixed(2) }}
+                            </p>
+                            <div class="mt-2 flex items-center">
+                                <span class="text-sm"
+                                    :class="rataPerwakilan >= rataTotalKemlu ? 'text-green-600' : 'text-yellow-600'">
+                                    {{ rataPerwakilan >= rataTotalKemlu ? 'Diatas rata-rata KEMLU' : 'Dibawah rata-rata KEMLU' }}
+                                </span>
+                            </div>
+                            <p class="mt-2 text-sm text-gray-500">
+                                diinput pada {{ formattedLastUpdatePerwakilan }}
+                            </p>
+                        </div>
                     </div>
-                  </th>
-                  <th
-                    v-if="selectedPerwakilan"
-                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-                  >
-                    Supporting Documents
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200 bg-white">
-                <tr
-                  v-for="item in sortedData"
-                  :key="item.nama_parameter"
-                  class="transition-colors duration-150 hover:bg-gray-50"
-                >
-                  <td class="whitespace-normal px-6 py-4">
-                    <div class="text-sm text-gray-900">
-                      {{ item.nama_parameter }}
+
+                    <!-- Jumlah Satker Selesai -->
+                    <div class="card-kemenlu">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-lg font-medium text-gray-700">Satuan Kerja</h2>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    Jumlah Satker yang Selesai
+                                </p>
+                            </div>
+                            <div class="rounded-full bg-purple-50 p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-5M17 4h5v5M4 20h5v-5M4 4h5v5" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-4xl font-bold text-purple-700">
+                                {{ countSelesai }}
+                            </p>
+                            <div class="mt-2 flex items-center">
+                                <span class="text-sm text-gray-600">
+                                    Total Selesai
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                  </td>
-                  <td class="whitespace-nowrap px-6 py-4">
-                    <div class="flex items-center">
-                      <div
-                        class="text-sm font-medium"
-                        :class="getAverageKemlu(item.nama_parameter) >= 3.2
-                          ? 'text-green-600'
-                          : 'text-yellow-600'"
-                      >
-                        {{ getAverageKemlu(item.nama_parameter).toFixed(2) }}
-                      </div>
-                      <div class="ml-2 h-1.5 w-16 rounded-full bg-gray-200">
-                        <div
-                          class="h-full rounded-full transition-all duration-300"
-                          :class="getAverageKemlu(item.nama_parameter) >= 3.2
-                            ? 'bg-green-500'
-                            : 'bg-yellow-500'"
-                          :style="{
-                            width:
-                              (getAverageKemlu(item.nama_parameter) / 4) * 100 + '%'
-                          }"
-                        ></div>
-                      </div>
+                </div>
+
+                <div class="card-kemenlu overflow-hidden">
+                    <!-- Header -->
+                    <div class="mb-4 flex items-center justify-between">
+                        <h2 class="text-lg font-medium text-gray-700">Performance Details</h2>
+                        <div class="flex items-center space-x-2">
+                            <button class="btn-kemenlu py-1 text-sm" @click="exportToCSV">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-1 h-4 w-4" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Export Data
+                            </button>
+                        </div>
                     </div>
-                  </td>
-                  <td
-                    v-if="selectedPerwakilan"
-                    class="whitespace-nowrap px-6 py-4"
-                  >
-                    <div class="flex items-center">
-                      <div
-                        class="text-sm font-medium"
-                        :class="getAveragePerwakilan(item.nama_parameter) >= 3.2
-                          ? 'text-green-600'
-                          : 'text-yellow-600'"
-                      >
-                        {{ getAveragePerwakilan(item.nama_parameter).toFixed(2) }}
-                      </div>
-                      <div class="ml-2 h-1.5 w-16 rounded-full bg-gray-200">
-                        <div
-                          class="h-full rounded-full transition-all duration-300"
-                          :class="getAveragePerwakilan(item.nama_parameter) >= 3.2
-                            ? 'bg-green-500'
-                            : 'bg-yellow-500'"
-                          :style="{
-                            width:
-                              (getAveragePerwakilan(item.nama_parameter) / 4) * 100 + '%'
-                          }"
-                        ></div>
-                      </div>
+
+                    <!-- Desktop View -->
+                    <div class="hidden overflow-x-auto md:block">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th @click="sortTable('nama_parameter')"
+                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100">
+                                        <div class="flex items-center space-x-1">
+                                            <span>Parameter Name</span>
+                                            <span class="text-gray-400 group-hover:text-gray-500">
+                                                <svg v-if="sortKey === 'nama_parameter'"
+                                                    :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                    class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th @click="sortTable('rata_kemlu')"
+                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100">
+                                        <div class="flex items-center space-x-1">
+                                            <span>Kemlu Average</span>
+                                            <span class="text-gray-400 group-hover:text-gray-500">
+                                                <svg v-if="sortKey === 'rata_kemlu'"
+                                                    :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                    class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th v-if="selectedPerwakilan" @click="sortTable('rata_perwakilan')"
+                                        class="group cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100">
+                                        <div class="flex items-center space-x-1">
+                                            <span>{{ selectedPerwakilan }} Average</span>
+                                            <span class="text-gray-400 group-hover:text-gray-500">
+                                                <svg v-if="sortKey === 'rata_perwakilan'"
+                                                    :class="sortOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                    class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </th>
+                                    <th v-if="selectedPerwakilan"
+                                        class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                        Supporting Documents</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 bg-white">
+                                <tr v-for="item in sortedData" :key="item.nama_parameter"
+                                    class="transition-colors duration-150 hover:bg-gray-50">
+                                    <td class="whitespace-normal px-6 py-4">
+                                        <div class="text-sm text-gray-900">{{ item . nama_parameter }}</div>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 py-4">
+                                        <div class="flex items-center">
+                                            <div class="text-sm font-medium"
+                                                :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'text-green-600' :
+                                                    'text-yellow-600'">
+                                                {{ getAverageKemlu(item . nama_parameter) . toFixed(2) }}
+                                            </div>
+                                            <div class="ml-2 h-1.5 w-16 rounded-full bg-gray-200">
+                                                <div class="h-full rounded-full transition-all duration-300"
+                                                    :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'bg-green-500' :
+                                                        'bg-yellow-500'"
+                                                    :style="{ width: (getAverageKemlu(item.nama_parameter) / 4) * 100 + '%' }">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td v-if="selectedPerwakilan" class="whitespace-nowrap px-6 py-4">
+                                        <div class="flex items-center">
+                                            <div class="text-sm font-medium"
+                                                :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'text-green-600' :
+                                                    'text-yellow-600'">
+                                                {{ getAveragePerwakilan(item . nama_parameter) . toFixed(2) }}
+                                            </div>
+                                            <div class="ml-2 h-1.5 w-16 rounded-full bg-gray-200">
+                                                <div class="h-full rounded-full transition-all duration-300"
+                                                    :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'bg-green-500' :
+                                                        'bg-yellow-500'"
+                                                    :style="{ width: (getAveragePerwakilan(item.nama_parameter) / 4) * 100 +
+                                                        '%' }">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td v-if="selectedPerwakilan" class="whitespace-nowrap px-6 py-4">
+                                        <div v-if="getBuktiDukung(item.nama_parameter).length"
+                                            class="flex flex-wrap gap-2">
+                                            <a v-for="(bukti, index) in getBuktiDukung(item.nama_parameter)"
+                                                :key="index" :href="bukti.url" target="_blank"
+                                                class="btn-download group">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                </svg>
+                                                <span>Doc {{ bukti . label }}</span>
+                                            </a>
+                                        </div>
+                                        <span v-else class="text-sm text-gray-500">No documents available</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                  </td>
-                  <td
-                    v-if="selectedPerwakilan"
-                    class="whitespace-nowrap px-6 py-4"
-                  >
+                    <!-- Mobile View -->
+                    <div class="space-y-4 md:hidden">
+                        <div v-for="item in sortedData" :key="item.nama_parameter"
+                            class="space-y-3 rounded-lg border border-gray-200 p-4">
+                            <!-- Parameter -->
+                            <div>
+                                <div class="mb-1 text-xs font-medium uppercase text-gray-500">Parameter Name</div>
+                                <div class="text-sm text-gray-900">{{ item . nama_parameter }}</div>
+                            </div>
+
+                            <!-- Kemlu Average -->
+                            <div>
+                                <div class="mb-1 text-xs font-medium uppercase text-gray-500">Kemlu Average</div>
+                                <div class="flex items-center">
+                                    <div class="text-sm font-medium"
+                                        :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'text-green-600' :
+                                            'text-yellow-600'">
+                                        {{ getAverageKemlu(item . nama_parameter) . toFixed(2) }}
+                                    </div>
+                                    <div class="ml-2 h-1.5 w-16 rounded-full bg-gray-200">
+                                        <div class="h-full rounded-full transition-all duration-300"
+                                            :class="getAverageKemlu(item.nama_parameter) >= 3.2 ? 'bg-green-500' :
+                                                'bg-yellow-500'"
+                                            :style="{ width: (getAverageKemlu(item.nama_parameter) / 4) * 100 + '%' }">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Perwakilan Average -->
+                            <div v-if="selectedPerwakilan">
+                                <div class="mb-1 text-xs font-medium uppercase text-gray-500">{{ selectedPerwakilan }}
+                                    Average</div>
+                                <div class="flex items-center">
+                                    <div class="text-sm font-medium"
+                                        :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'text-green-600' :
+                                            'text-yellow-600'">
+                                        {{ getAveragePerwakilan(item . nama_parameter) . toFixed(2) }}
+                                    </div>
+                                    <div class="ml-2 h-1.5 w-16 rounded-full bg-gray-200">
+                                        <div class="h-full rounded-full transition-all duration-300"
+                                            :class="getAveragePerwakilan(item.nama_parameter) >= 3.2 ? 'bg-green-500' :
+                                                'bg-yellow-500'"
+                                            :style="{ width: (getAveragePerwakilan(item.nama_parameter) / 4) * 100 + '%' }">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Documents -->
+                            <div v-if="selectedPerwakilan">
+                                <div class="mb-1 text-xs font-medium uppercase text-gray-500">Supporting Documents
+                                </div>
+                                <div v-if="getBuktiDukung(item.nama_parameter).length" class="flex flex-wrap gap-2">
+                                    <a v-for="(bukti, index) in getBuktiDukung(item.nama_parameter)"
+                                        :key="index" :href="bukti.url" target="_blank"
+                                        class="btn-download group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                        <span>Doc {{ bukti . label }}</span>
+                                    </a>
+                                </div>
+                                <span v-else class="text-sm text-gray-500">No documents available</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
                     <div
-                      v-if="getBuktiDukung(item.nama_parameter).length"
-                      class="flex flex-wrap gap-2"
-                    >
-                      <a
-                        v-for="(bukti, index) in getBuktiDukung(item.nama_parameter)"
-                        :key="index"
-                        :href="bukti.url"
-                        target="_blank"
-                        class="btn-download group"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                          />
-                        </svg>
-                        <span>Doc {{ bukti.label }}</span>
-                      </a>
+                        class="mt-6 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-4 sm:flex-row">
+                        <div class="flex items-center gap-3">
+                            <button @click="changePage(currentPage - 1)" :disabled="currentPage === 1"
+                                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7" />
+                                </svg>
+                                Previous
+                            </button>
+
+                            <span class="inline-flex items-center text-sm text-gray-700">
+                                Page {{ currentPage }} of {{ totalPages }}
+                            </span>
+
+                            <button @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages"
+                                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50">
+                                Next
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Items per page selector -->
+                        <div class="flex items-center gap-3">
+                            <label for="itemsPerPage" class="text-sm font-medium text-gray-700">
+                                Items per page
+                            </label>
+                            <select id="itemsPerPage" v-model.number="itemsPerPage"
+                                class="rounded-md border-0 py-1.5 pl-3 pr-8 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <option v-for="option in itemsOptions" :key="option" :value="option">
+                                    {{ option }}
+                                </option>
+                            </select>
+                        </div>
                     </div>
-                    <span v-else class="text-sm text-gray-500">
-                      No documents available
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div
-            class="mt-6 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-4 sm:flex-row"
-          >
-            <!-- Pagination Controls -->
-            <div class="flex items-center gap-3">
-              <button
-                @click="changePage(currentPage - 1)"
-                :disabled="currentPage === 1"
-                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                Previous
-              </button>
+                </div>
 
-              <span class="inline-flex items-center text-sm text-gray-700">
-                Page {{ currentPage }} of {{ totalPages }}
-              </span>
+                <!-- Card Satker Status -->
+                <div class="card-kemenlu mx-auto max-w-6xl bg-white">
+                    <!-- Items per page selector -->
+                    <div class="flex items-center gap-3">
+                        <label for="itemsPerPageNew" class="text-sm font-medium text-gray-700">
+                            Items per page
+                        </label>
+                        <select id="itemsPerPageNew" v-model.number="itemsPerPageNew"
+                            class="rounded-md border-0 py-1.5 pl-3 pr-8 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option v-for="option in itemsOptions" :key="option" :value="option">
+                                {{ option }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-between p-4">
+                        <h2 class="text-xl font-medium">Satker Status</h2>
+                        <button
+                            class="btn-kemenlu inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                            @click="exportNewDataToCSV">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-4 w-4" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Export Data
+                        </button>
+                    </div>
 
-              <button
-                @click="changePage(currentPage + 1)"
-                :disabled="currentPage === totalPages"
-                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                Next
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
+                    <!-- Filters Satker Status -->
+                    <div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
+                        <div>
+                            <label for="searchNama" class="block text-sm font-medium text-gray-700">
+                                Search Nama
+                            </label>
+                            <input type="text" id="searchNama" v-model="searchNewNama" @input="applyNewFilters"
+                                placeholder="Search by Nama..."
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+                        </div>
+                        <div>
+                            <label for="filterStatus" class="block text-sm font-medium text-gray-700">
+                                Filter Status
+                            </label>
+                            <select id="filterStatus" v-model="filterNewStatus" @change="applyNewFilters"
+                                class="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                <option value="">All Statuses</option>
+                                <option v-for="status in uniqueNewStatuses" :key="status"
+                                    :value="status">
+                                    {{ status }}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="filterDuplikasi" class="block text-sm font-medium text-gray-700">
+                                Filter Duplikasi
+                            </label>
+                            <select id="filterDuplikasi" v-model="filterNewDuplikasi" @change="applyNewFilters"
+                                class="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                <option value="">All Duplikasis</option>
+                                <option v-for="duplikasi in uniqueNewDuplikasis" :key="duplikasi"
+                                    :value="duplikasi">
+                                    {{ duplikasi }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Table Satker Status -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="border-y border-gray-200 bg-gray-50">
+                                <tr>
+                                    <th @click="sortNewData('nama')"
+                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500">
+                                        <div class="flex items-center">
+                                            <span class="mr-2">NAMA</span>
+                                            <svg v-if="sortNewKey === 'nama'"
+                                                :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </th>
+                                    <th @click="sortNewData('status')"
+                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500">
+                                        <div class="flex items-center">
+                                            <span class="mr-2">STATUS</span>
+                                            <svg v-if="sortNewKey === 'status'"
+                                                :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </th>
+                                    <th @click="sortNewData('duplikasi')"
+                                        class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500">
+                                        <div class="flex items-center">
+                                            <span class="mr-2">DUPLIKASI</span>
+                                            <svg v-if="sortNewKey === 'duplikasi'"
+                                                :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
+                                                class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in sortedNewData" :key="item.nama"
+                                    class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ item . nama }}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ item . status }}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ item . duplikasi }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div
+                        class="flex flex-col items-center justify-between gap-4 border-t border-gray-200 p-4 sm:flex-row">
+                        <!-- Pagination Controls -->
+                        <div class="flex items-center gap-3">
+                            <button @click="changeNewPage(currentNewPage - 1)" :disabled="currentNewPage === 1"
+                                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7" />
+                                </svg>
+                                Previous
+                            </button>
+
+                            <span class="inline-flex items-center text-sm text-gray-700">
+                                Page {{ currentNewPage }} of {{ totalNewPages }}
+                            </span>
+
+                            <button @click="changeNewPage(currentNewPage + 1)"
+                                :disabled="currentNewPage === totalNewPages"
+                                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50">
+                                Next
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Items per page selector -->
-            <div class="flex items-center gap-3">
-              <label for="itemsPerPage" class="text-sm font-medium text-gray-700">
-                Items per page
-              </label>
-              <select
-                id="itemsPerPage"
-                v-model.number="itemsPerPage"
-                class="rounded-md border-0 py-1.5 pl-3 pr-8 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              >
-                <option
-                  v-for="option in itemsOptions"
-                  :key="option"
-                  :value="option"
-                >
-                  {{ option }}
-                </option>
-              </select>
-            </div>
-          </div>
         </div>
+    </main>
 
-        <!-- Top Satkers Table -->
-        <div class="card-kemenlu overflow-hidden">
-          <div class="mb-4 flex items-center justify-between">
-            <h2 class="text-lg font-medium text-gray-700">Top Satkers</h2>
-            <p class="text-sm text-gray-500">
-              Highest Average IPA (max 10)
+    <footer class="text-gray-600">
+        <div class="container mx-auto flex flex-col items-center px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
+            <a class="flex items-center justify-center">
+                <img src="https://lh3.googleusercontent.com/d/1NY5Ncxw9q2zWS5OH2QAMVbkzKDJT4wl0"
+                    alt="Kementerian Luar Negeri Logo" class="h-8 w-auto" />
+            </a>
+            <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
+                © <span id="currentYear"></span> MoFA RI
             </p>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-50">
-                <tr>
-                  <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                    Nama Satker
-                  </th>
-                  <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                    Average Nilai Akhir
-                  </th>
-                  <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                    Earliest Timestamp
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200 bg-white">
-                <tr
-                  v-for="satker in paginatedTopSatkers"
-                  :key="satker.nama_perwakilan"
-                  class="transition-colors duration-150 hover:bg-gray-50"
-                >
-                  <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-700">
-                    {{ satker.nama_perwakilan }}
-                  </td>
-                  <td class="px-6 py-4 text-sm text-gray-700">
-                    {{ satker.average.toFixed(2) }}
-                  </td>
-                  <td class="px-6 py-4 text-sm text-gray-700">
-                    {{ new Date(satker.earliestTimestamp).toLocaleString() }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Pagination for Top Satkers (2 pages of 5 each) -->
-          <div
-            class="mt-6 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-4 sm:flex-row"
-          >
-            <div class="flex items-center gap-3">
-              <button
-                @click="changeTopSatkersPage(topSatkersCurrentPage - 1)"
-                :disabled="topSatkersCurrentPage === 1"
-                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                Previous
-              </button>
-
-              <span class="inline-flex items-center text-sm text-gray-700">
-                Page {{ topSatkersCurrentPage }} of {{ topSatkersTotalPages }}
-              </span>
-
-              <button
-                @click="changeTopSatkersPage(topSatkersCurrentPage + 1)"
-                :disabled="topSatkersCurrentPage === topSatkersTotalPages"
-                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                Next
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
+            <script>
+                document.getElementById('currentYear').textContent =
+                    new Date().getFullYear();
+            </script>
         </div>
+    </footer>
 
-        <!-- Card Satker Status -->
-        <div class="card-kemenlu mx-auto max-w-6xl bg-white">
-          <!-- Items per page selector -->
-          <div class="flex items-center gap-3">
-            <label for="itemsPerPageNew" class="text-sm font-medium text-gray-700">
-              Items per page
-            </label>
-            <select
-              id="itemsPerPageNew"
-              v-model.number="itemsPerPageNew"
-              class="rounded-md border-0 py-1.5 pl-3 pr-8 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            >
-              <option
-                v-for="option in itemsOptions"
-                :key="option"
-                :value="option"
-              >
-                {{ option }}
-              </option>
-            </select>
-          </div>
-          <div class="flex items-center justify-between p-4">
-            <h2 class="text-xl font-medium">Satker Status</h2>
-            <button
-              class="btn-kemenlu inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-              @click="exportNewDataToCSV"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="mr-2 h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              Export Data
-            </button>
-          </div>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.prod.js"></script>
 
-          <!-- Filters Satker Status -->
-          <div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
-            <div>
-              <label for="searchNama" class="block text-sm font-medium text-gray-700">
-                Search Nama
-              </label>
-              <input
-                type="text"
-                id="searchNama"
-                v-model="searchNewNama"
-                @input="applyNewFilters"
-                placeholder="Search by Nama..."
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              />
-            </div>
-            <div>
-              <label for="filterStatus" class="block text-sm font-medium text-gray-700">
-                Filter Status
-              </label>
-              <select
-                id="filterStatus"
-                v-model="filterNewStatus"
-                @change="applyNewFilters"
-                class="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              >
-                <option value="">All Statuses</option>
-                <option
-                  v-for="status in uniqueNewStatuses"
-                  :key="status"
-                  :value="status"
-                >
-                  {{ status }}
-                </option>
-              </select>
-            </div>
-            <div>
-              <label for="filterDuplikasi" class="block text-sm font-medium text-gray-700">
-                Filter Duplikasi
-              </label>
-              <select
-                id="filterDuplikasi"
-                v-model="filterNewDuplikasi"
-                @change="applyNewFilters"
-                class="mt-1 block w-full rounded-md border-gray-300 bg-white py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              >
-                <option value="">All Duplikasis</option>
-                <option
-                  v-for="duplikasi in uniqueNewDuplikasis"
-                  :key="duplikasi"
-                  :value="duplikasi"
-                >
-                  {{ duplikasi }}
-                </option>
-              </select>
-            </div>
-          </div>
+    <script>
+        const CACHE_KEY_MAIN = 'kemlu_dashboard_data';
+        const CACHE_KEY_NEW = 'kemlu_dashboard_new_data';
+        const CACHE_EXPIRATION_MS = 60 * 1000;
 
-          <!-- Table Satker Status -->
-          <div class="overflow-x-auto">
-            <table class="w-full">
-              <thead class="border-y border-gray-200 bg-gray-50">
-                <tr>
-                  <th
-                    @click="sortNewData('nama')"
-                    class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500"
-                  >
-                    <div class="flex items-center">
-                      <span class="mr-2">NAMA</span>
-                      <svg
-                        v-if="sortNewKey === 'nama'"
-                        :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
-                        class="h-4 w-4"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </th>
-                  <th
-                    @click="sortNewData('status')"
-                    class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500"
-                  >
-                    <div class="flex items-center">
-                      <span class="mr-2">STATUS</span>
-                      <svg
-                        v-if="sortNewKey === 'status'"
-                        :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
-                        class="h-4 w-4"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </th>
-                  <th
-                    @click="sortNewData('duplikasi')"
-                    class="cursor-pointer px-4 py-3 text-left text-sm font-medium text-gray-500"
-                  >
-                    <div class="flex items-center">
-                      <span class="mr-2">DUPLIKASI</span>
-                      <svg
-                        v-if="sortNewKey === 'duplikasi'"
-                        :class="sortNewOrder === 'asc' ? 'transform rotate-180' : ''"
-                        class="h-4 w-4"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="item in sortedNewData"
-                  :key="item.nama"
-                  class="border-b border-gray-200 hover:bg-gray-50"
-                >
-                  <td class="px-4 py-3 text-sm">
-                    {{ item.nama }}
-                  </td>
-                  <td class="px-4 py-3 text-sm">
-                    {{ item.status }}
-                  </td>
-                  <td class="px-4 py-3 text-sm">
-                    {{ item.duplikasi }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    data: [],
+                    loading: false,
+                    error: null,
+                    rataTotalKemlu: 0,
+                    rataKemluPerParameter: {},
+                    rataPerwakilan: 0,
+                    perwakilanList: [],
+                    selectedPerwakilan: '',
+                    searchQuery: '',
+                    showDropdown: false,
+                    sortKey: '',
+                    sortOrder: 'asc',
+                    lastUpdate: null,
+                    currentPage: 1,
+                    itemsPerPage: 15,
 
-          <div
-            class="flex flex-col items-center justify-between gap-4 border-t border-gray-200 p-4 sm:flex-row"
-          >
-            <!-- Pagination Controls -->
-            <div class="flex items-center gap-3">
-              <button
-                @click="changeNewPage(currentNewPage - 1)"
-                :disabled="currentNewPage === 1"
-                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                Previous
-              </button>
+                    newData: [],
+                    loadingNewData: false,
+                    errorNewData: null,
+                    sortNewKey: '',
+                    sortNewOrder: 'asc',
+                    currentNewPage: 1,
+                    itemsPerPageNew: 10,
 
-              <span class="inline-flex items-center text-sm text-gray-700">
-                Page {{ currentNewPage }} of {{ totalNewPages }}
-              </span>
+                    searchNewNama: '',
+                    filterNewStatus: '',
+                    filterNewDuplikasi: '',
+                    filteredNewData: [],
 
-              <button
-                @click="changeNewPage(currentNewPage + 1)"
-                :disabled="currentNewPage === totalNewPages"
-                class="inline-flex items-center gap-1 rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                Next
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+                    lastUpdatePerwakilan: null,
+                    itemsOptions: [5, 10, 20, 50, 100, 200, 500, 1000],
 
-  <footer class="text-gray-600">
-    <div
-      class="container mx-auto flex flex-col items-center px-4 py-6 sm:flex-row sm:px-6 lg:px-8"
-    >
-      <a class="flex items-center justify-center">
-        <img
-          src="https://lh3.googleusercontent.com/d/1NY5Ncxw9q2zWS5OH2QAMVbkzKDJT4wl0"
-          alt="Kementerian Luar Negeri Logo"
-          class="h-8 w-auto"
-        />
-      </a>
-      <p
-        class="mt-4 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4"
-      >
-        © <span id="currentYear"></span> MoFA RI
-      </p>
-      <script>
-        document.getElementById('currentYear').textContent =
-          new Date().getFullYear();
-      </script>
-    </div>
-  </footer>
+                    cachedDataLoaded: false,
+                    cachedNewDataLoaded: false,
 
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.prod.js"></script>
+                    autoPolling: false,
+                    isManualUpdating: false,
 
-  <script>
-    const CACHE_KEY_MAIN = 'kemlu_dashboard_data';
-    const CACHE_KEY_NEW = 'kemlu_dashboard_new_data';
-    const CACHE_EXPIRATION_MS = 60 * 1000;
-
-    const app = Vue.createApp({
-      data() {
-        return {
-          data: [],
-          loading: false,
-          error: null,
-          rataTotalKemlu: 0,
-          rataKemluPerParameter: {},
-          rataPerwakilan: 0,
-          perwakilanList: [],
-          selectedPerwakilan: '',
-          searchQuery: '',
-          showDropdown: false,
-          sortKey: '',
-          sortOrder: 'asc',
-          lastUpdate: null,
-          currentPage: 1,
-          itemsPerPage: 15,
-
-          newData: [],
-          loadingNewData: false,
-          errorNewData: null,
-          sortNewKey: '',
-          sortNewOrder: 'asc',
-          currentNewPage: 1,
-          itemsPerPageNew: 10,
-
-          searchNewNama: '',
-          filterNewStatus: '',
-          filterNewDuplikasi: '',
-          filteredNewData: [],
-
-          lastUpdatePerwakilan: null,
-          itemsOptions: [5, 10, 20, 50, 100, 200, 500, 1000],
-
-          cachedDataLoaded: false,
-          cachedNewDataLoaded: false,
-
-          autoPolling: false,
-          isManualUpdating: false,
-
-          // For the new features:
-          latestActivities: [],
-          topSatkers: [],
-          topSatkersCurrentPage: 1,
-          topSatkersPerPage: 5
-        };
-      },
-      computed: {
-        filteredPerwakilanList() {
-          if (!this.searchQuery) return this.perwakilanList;
-          const query = this.searchQuery.toLowerCase().trim();
-          return this.perwakilanList.filter((p) =>
-            p.toLowerCase().includes(query)
-          );
-        },
-        sortedData() {
-          let sorted = Object.keys(this.rataKemluPerParameter).map((key) => ({
-            nama_parameter: key,
-            rata_kemlu: this.rataKemluPerParameter[key],
-            rata_perwakilan: this.selectedPerwakilan
-              ? this.getAveragePerwakilan(key)
-              : null
-          }));
-
-          if (this.sortKey) {
-            sorted.sort((a, b) => {
-              let valA = a[this.sortKey];
-              let valB = b[this.sortKey];
-              if (typeof valA === 'string') {
-                valA = valA.toLowerCase();
-                valB = valB.toLowerCase();
-              }
-              if (valA < valB) return this.sortOrder === 'asc' ? -1 : 1;
-              if (valA > valB) return this.sortOrder === 'asc' ? 1 : -1;
-              return 0;
-            });
-          }
-          const start = (this.currentPage - 1) * this.itemsPerPage;
-          const end = start + this.itemsPerPage;
-          return sorted.slice(start, end);
-        },
-        totalPages() {
-          return Math.ceil(
-            Object.keys(this.rataKemluPerParameter).length / this.itemsPerPage
-          );
-        },
-        formattedLastUpdate() {
-          if (!this.lastUpdate) return 'Never';
-          return new Date(this.lastUpdate).toLocaleString();
-        },
-        sortedNewData() {
-          let sorted = [...this.filteredNewData];
-          if (this.sortNewKey) {
-            sorted.sort((a, b) => {
-              let valA = a[this.sortNewKey];
-              let valB = b[this.sortNewKey];
-              if (typeof valA === 'string') {
-                valA = valA.toLowerCase();
-                valB = valB.toLowerCase();
-              }
-              if (valA < valB) return this.sortNewOrder === 'asc' ? -1 : 1;
-              if (valA > valB) return this.sortNewOrder === 'asc' ? 1 : -1;
-              return 0;
-            });
-          }
-          const start = (this.currentNewPage - 1) * this.itemsPerPageNew;
-          const end = start + this.itemsPerPageNew;
-          return sorted.slice(start, end);
-        },
-        totalNewPages() {
-          return Math.ceil(this.filteredNewData.length / this.itemsPerPageNew);
-        },
-        uniqueNewStatuses() {
-          const statuses = this.newData.map((item) => item.status);
-          return [...new Set(statuses)].sort();
-        },
-        uniqueNewDuplikasis() {
-          const duplikasis = this.newData.map((item) => item.duplikasi);
-          return [...new Set(duplikasis)].sort();
-        },
-        formattedLastUpdatePerwakilan() {
-          if (!this.lastUpdatePerwakilan) return 'Tidak ada data';
-          return this.lastUpdatePerwakilan.toLocaleString();
-        },
-        countSelesai() {
-          return this.newData.filter((x) => x.status === 'Selesai').length;
-        },
-        // Top Satkers pagination
-        topSatkersTotalPages() {
-          return Math.ceil(this.topSatkers.length / this.topSatkersPerPage);
-        },
-        paginatedTopSatkers() {
-          const start = (this.topSatkersCurrentPage - 1) * this.topSatkersPerPage;
-          const end = start + this.topSatkersPerPage;
-          return this.topSatkers.slice(start, end);
-        }
-      },
-      methods: {
-        async fetchAllData() {
-          this.fetchData();
-          this.fetchNewData();
-        },
-        async fetchData(forceUpdate = false) {
-          try {
-            const now = Date.now();
-            if (!forceUpdate) {
-              const cached = localStorage.getItem(CACHE_KEY_MAIN);
-              if (cached) {
-                const parsed = JSON.parse(cached);
-                if (now - parsed.timestamp < CACHE_EXPIRATION_MS) {
-                  this.data = parsed.data;
-                  this.lastUpdate = parsed.lastUpdate;
-                  this.processData();
-                  this.cachedDataLoaded = true;
-                  return;
-                }
-              }
-            }
-            this.error = null;
-            // Replace with your actual endpoint:
-            const response = await fetch(
-              'https://script.googleusercontent.com/macros/echo?user_content_key=YiYDw8_nZBGknQ3SuyzMGZT6Lv4GXHhThOZwugeaQUX596NxvWKrTRr7-I593jnV1SxK9QzShXnTIDUeN8xMVlqy3PpciraYm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnB0X55qXk18_hxKctyIRrbQ3Yp0irUuT43Ees73sSCrk-MwZZFLjC4reez1VF5ayuWjSc2y3YsKznX1n_gXN4dIxh7idoDElVg&lib=MPPj3VbaWTfQqXksrYX2wxkoU2qvfDcTZ'
-            );
-            const result = await response.json();
-            if (result.status === 'success') {
-              this.data = result.data;
-              this.lastUpdate = new Date().toISOString();
-              this.processData();
-              localStorage.setItem(
-                CACHE_KEY_MAIN,
-                JSON.stringify({
-                  data: this.data,
-                  lastUpdate: this.lastUpdate,
-                  timestamp: now
-                })
-              );
-            } else {
-              throw new Error(result.message || 'Failed to fetch data');
-            }
-          } catch (err) {
-            console.error('Error fetching data:', err);
-            this.error =
-              'Failed to load dashboard data. Please try again later.';
-          }
-        },
-        async fetchNewData(forceUpdate = false) {
-          try {
-            const now = Date.now();
-            if (!forceUpdate) {
-              const cached = localStorage.getItem(CACHE_KEY_NEW);
-              if (cached) {
-                const parsed = JSON.parse(cached);
-                if (now - parsed.timestamp < CACHE_EXPIRATION_MS) {
-                  this.newData = parsed.data;
-                  this.applyNewFilters();
-                  this.cachedNewDataLoaded = true;
-                  return;
-                }
-              }
-            }
-            this.errorNewData = null;
-            // Replace with your second actual endpoint:
-            const response = await fetch(
-              'https://script.googleusercontent.com/a/macros/biroumumkemlu.id/echo?user_content_key=Vx4-EovqFrs4KT1mmCBs00YbyyiT2obp7QTjNuezNI5YGSlulXLq2onIQcGvD0mddCfi8nCAVuzJKTyEjDCRfGM2txUcnyFuOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKCSYsR_90La1Ls51QzLR1hsTQBA7JY5-616MjY46iumO_Klwo1NOPP5w84VyzRa_MIQEPzd6ljpzfSNlAHsT3vyfNgt7pEzeSObxJZFOoYixm6XMiWsghw3vz-ErrSAoa4YZpTak_o22Q&lib=MXFU0hgndY1PL4M2mwPsafkoU2qvfDcTZ'
-            );
-            const result = await response.json();
-            if (result.status === 'success') {
-              this.newData = result.data;
-              localStorage.setItem(
-                CACHE_KEY_NEW,
-                JSON.stringify({
-                  data: this.newData,
-                  timestamp: now
-                })
-              );
-              this.applyNewFilters();
-            } else {
-              throw new Error(result.message || 'Failed to fetch new data');
-            }
-          } catch (err) {
-            console.error('Error fetching new data:', err);
-            this.errorNewData =
-              'Failed to load perwakilan status data. Please try again later.';
-          }
-        },
-        processData() {
-          const validScores = this.data.filter(
-            (item) => !isNaN(parseFloat(item.nilai_akhir))
-          );
-          const total = validScores.reduce(
-            (sum, item) => sum + parseFloat(item.nilai_akhir),
-            0
-          );
-          this.rataTotalKemlu = validScores.length
-            ? total / validScores.length
-            : 0;
-
-          const parameterMap = this.data.reduce((acc, item) => {
-            const param = item.nama_parameter;
-            const nilai = parseFloat(item.nilai_akhir);
-            if (!acc[param]) {
-              acc[param] = {
-                total: 0,
-                count: 0
-              };
-            }
-            if (!isNaN(nilai)) {
-              acc[param].total += nilai;
-              acc[param].count += 1;
-            }
-            return acc;
-          }, {});
-          this.rataKemluPerParameter = Object.keys(parameterMap).reduce(
-            (acc, key) => {
-              acc[key] = parameterMap[key].count
-                ? parameterMap[key].total / parameterMap[key].count
-                : 0;
-              return acc;
+                    // For the new features:
+                    latestActivities: [],
+                    topSatkers: [],
+                    topSatkersCurrentPage: 1,
+                    topSatkersPerPage: 5
+                };
             },
-            {}
-          );
-          this.perwakilanList = [
-            ...new Set(this.data.map((item) => item.nama_perwakilan))
-          ].sort();
+            computed: {
+                filteredPerwakilanList() {
+                    if (!this.searchQuery) return this.perwakilanList;
+                    const query = this.searchQuery.toLowerCase().trim();
+                    return this.perwakilanList.filter((p) =>
+                        p.toLowerCase().includes(query)
+                    );
+                },
+                sortedData() {
+                    let sorted = Object.keys(this.rataKemluPerParameter).map((key) => ({
+                        nama_parameter: key,
+                        rata_kemlu: this.rataKemluPerParameter[key],
+                        rata_perwakilan: this.selectedPerwakilan ?
+                            this.getAveragePerwakilan(key) : null
+                    }));
 
-          // Build the feed for latestActivities
-          this.buildLatestActivities();
-          // Build the top satkers table
-          this.buildTopSatkers();
-        },
-        handleSearch() {
-          this.showDropdown = true;
-        },
-        handleBlur(event) {
-          const dropdownContainer = event.target.parentElement;
-          const relatedTarget = event.relatedTarget;
-          if (!relatedTarget || !dropdownContainer.contains(relatedTarget)) {
-            setTimeout(() => {
-              this.showDropdown = false;
-            }, 200);
-          }
-        },
-        selectPerwakilan(perwakilan) {
-          if (this.selectedPerwakilan === perwakilan) {
-            this.selectedPerwakilan = '';
-            this.searchQuery = '';
-            this.rataPerwakilan = 0;
-            this.lastUpdatePerwakilan = null;
-          } else {
-            this.selectedPerwakilan = perwakilan;
-            this.searchQuery = perwakilan;
-            const filtered = this.data.filter(
-              (item) => item.nama_perwakilan === this.selectedPerwakilan
-            );
-            const validScores = filtered.filter(
-              (item) => !isNaN(parseFloat(item.nilai_akhir))
-            );
-            const total = validScores.reduce(
-              (sum, item) => sum + parseFloat(item.nilai_akhir),
-              0
-            );
-            this.rataPerwakilan = validScores.length
-              ? total / validScores.length
-              : 0;
+                    if (this.sortKey) {
+                        sorted.sort((a, b) => {
+                            let valA = a[this.sortKey];
+                            let valB = b[this.sortKey];
+                            if (typeof valA === 'string') {
+                                valA = valA.toLowerCase();
+                                valB = valB.toLowerCase();
+                            }
+                            if (valA < valB) return this.sortOrder === 'asc' ? -1 : 1;
+                            if (valA > valB) return this.sortOrder === 'asc' ? 1 : -1;
+                            return 0;
+                        });
+                    }
+                    const start = (this.currentPage - 1) * this.itemsPerPage;
+                    const end = start + this.itemsPerPage;
+                    return sorted.slice(start, end);
+                },
+                totalPages() {
+                    return Math.ceil(
+                        Object.keys(this.rataKemluPerParameter).length / this.itemsPerPage
+                    );
+                },
+                formattedLastUpdate() {
+                    if (!this.lastUpdate) return 'Never';
+                    return new Date(this.lastUpdate).toLocaleString();
+                },
+                sortedNewData() {
+                    let sorted = [...this.filteredNewData];
+                    if (this.sortNewKey) {
+                        sorted.sort((a, b) => {
+                            let valA = a[this.sortNewKey];
+                            let valB = b[this.sortNewKey];
+                            if (typeof valA === 'string') {
+                                valA = valA.toLowerCase();
+                                valB = valB.toLowerCase();
+                            }
+                            if (valA < valB) return this.sortNewOrder === 'asc' ? -1 : 1;
+                            if (valA > valB) return this.sortNewOrder === 'asc' ? 1 : -1;
+                            return 0;
+                        });
+                    }
+                    const start = (this.currentNewPage - 1) * this.itemsPerPageNew;
+                    const end = start + this.itemsPerPageNew;
+                    return sorted.slice(start, end);
+                },
+                totalNewPages() {
+                    return Math.ceil(this.filteredNewData.length / this.itemsPerPageNew);
+                },
+                uniqueNewStatuses() {
+                    const statuses = this.newData.map((item) => item.status);
+                    return [...new Set(statuses)].sort();
+                },
+                uniqueNewDuplikasis() {
+                    const duplikasis = this.newData.map((item) => item.duplikasi);
+                    return [...new Set(duplikasis)].sort();
+                },
+                formattedLastUpdatePerwakilan() {
+                    if (!this.lastUpdatePerwakilan) return 'Tidak ada data';
+                    return this.lastUpdatePerwakilan.toLocaleString();
+                },
+                countSelesai() {
+                    return this.newData.filter((x) => x.status === 'Selesai').length;
+                },
+                // Top Satkers pagination
+                topSatkersTotalPages() {
+                    return Math.ceil(this.topSatkers.length / this.topSatkersPerPage);
+                },
+                paginatedTopSatkers() {
+                    const start = (this.topSatkersCurrentPage - 1) * this.topSatkersPerPage;
+                    const end = start + this.topSatkersPerPage;
+                    return this.topSatkers.slice(start, end);
+                }
+            },
+            methods: {
+                async fetchAllData() {
+                    this.fetchData();
+                    this.fetchNewData();
+                },
+                async fetchData(forceUpdate = false) {
+                    try {
+                        const now = Date.now();
+                        if (!forceUpdate) {
+                            const cached = localStorage.getItem(CACHE_KEY_MAIN);
+                            if (cached) {
+                                const parsed = JSON.parse(cached);
+                                if (now - parsed.timestamp < CACHE_EXPIRATION_MS) {
+                                    this.data = parsed.data;
+                                    this.lastUpdate = parsed.lastUpdate;
+                                    this.processData();
+                                    this.cachedDataLoaded = true;
+                                    return;
+                                }
+                            }
+                        }
+                        this.error = null;
+                        // Replace with your actual endpoint:
+                        const response = await fetch(
+                            'https://script.googleusercontent.com/macros/echo?user_content_key=YiYDw8_nZBGknQ3SuyzMGZT6Lv4GXHhThOZwugeaQUX596NxvWKrTRr7-I593jnV1SxK9QzShXnTIDUeN8xMVlqy3PpciraYm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnB0X55qXk18_hxKctyIRrbQ3Yp0irUuT43Ees73sSCrk-MwZZFLjC4reez1VF5ayuWjSc2y3YsKznX1n_gXN4dIxh7idoDElVg&lib=MPPj3VbaWTfQqXksrYX2wxkoU2qvfDcTZ'
+                        );
+                        const result = await response.json();
+                        if (result.status === 'success') {
+                            this.data = result.data;
+                            this.lastUpdate = new Date().toISOString();
+                            this.processData();
+                            localStorage.setItem(
+                                CACHE_KEY_MAIN,
+                                JSON.stringify({
+                                    data: this.data,
+                                    lastUpdate: this.lastUpdate,
+                                    timestamp: now
+                                })
+                            );
+                        } else {
+                            throw new Error(result.message || 'Failed to fetch data');
+                        }
+                    } catch (err) {
+                        console.error('Error fetching data:', err);
+                        this.error =
+                            'Failed to load dashboard data. Please try again later.';
+                    }
+                },
+                async fetchNewData(forceUpdate = false) {
+                    try {
+                        const now = Date.now();
+                        if (!forceUpdate) {
+                            const cached = localStorage.getItem(CACHE_KEY_NEW);
+                            if (cached) {
+                                const parsed = JSON.parse(cached);
+                                if (now - parsed.timestamp < CACHE_EXPIRATION_MS) {
+                                    this.newData = parsed.data;
+                                    this.applyNewFilters();
+                                    this.cachedNewDataLoaded = true;
+                                    return;
+                                }
+                            }
+                        }
+                        this.errorNewData = null;
+                        // Replace with your second actual endpoint:
+                        const response = await fetch(
+                            'https://script.googleusercontent.com/a/macros/biroumumkemlu.id/echo?user_content_key=Vx4-EovqFrs4KT1mmCBs00YbyyiT2obp7QTjNuezNI5YGSlulXLq2onIQcGvD0mddCfi8nCAVuzJKTyEjDCRfGM2txUcnyFuOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKCSYsR_90La1Ls51QzLR1hsTQBA7JY5-616MjY46iumO_Klwo1NOPP5w84VyzRa_MIQEPzd6ljpzfSNlAHsT3vyfNgt7pEzeSObxJZFOoYixm6XMiWsghw3vz-ErrSAoa4YZpTak_o22Q&lib=MXFU0hgndY1PL4M2mwPsafkoU2qvfDcTZ'
+                        );
+                        const result = await response.json();
+                        if (result.status === 'success') {
+                            this.newData = result.data;
+                            localStorage.setItem(
+                                CACHE_KEY_NEW,
+                                JSON.stringify({
+                                    data: this.newData,
+                                    timestamp: now
+                                })
+                            );
+                            this.applyNewFilters();
+                        } else {
+                            throw new Error(result.message || 'Failed to fetch new data');
+                        }
+                    } catch (err) {
+                        console.error('Error fetching new data:', err);
+                        this.errorNewData =
+                            'Failed to load perwakilan status data. Please try again later.';
+                    }
+                },
+                processData() {
+                    const validScores = this.data.filter(
+                        (item) => !isNaN(parseFloat(item.nilai_akhir))
+                    );
+                    const total = validScores.reduce(
+                        (sum, item) => sum + parseFloat(item.nilai_akhir),
+                        0
+                    );
+                    this.rataTotalKemlu = validScores.length ?
+                        total / validScores.length :
+                        0;
 
-            const perwakilanItems = this.data.filter(
-              (item) =>
-                item.nama_perwakilan === this.selectedPerwakilan && item.timestamp
-            );
-            if (perwakilanItems.length) {
-              this.lastUpdatePerwakilan = new Date(
-                Math.max(
-                  ...perwakilanItems.map((item) => new Date(item.timestamp))
-                )
-              );
-            } else {
-              this.lastUpdatePerwakilan = null;
-            }
-          }
-          this.showDropdown = false;
-        },
-        getAverageKemlu(nama_parameter) {
-          return this.rataKemluPerParameter[nama_parameter] || 0;
-        },
-        getAveragePerwakilan(nama_parameter) {
-          if (!this.selectedPerwakilan) return 0;
-          const filtered = this.data.filter(
-            (item) =>
-              item.nama_perwakilan === this.selectedPerwakilan &&
-              item.nama_parameter === nama_parameter
-          );
-          if (filtered.length === 0) return 0;
-          const validScores = filtered.filter(
-            (item) => !isNaN(parseFloat(item.nilai_akhir))
-          );
-          if (validScores.length === 0) return 0;
-          const total = validScores.reduce(
-            (sum, item) => sum + parseFloat(item.nilai_akhir),
-            0
-          );
-          return total / validScores.length;
-        },
-        getBuktiDukung(nama_parameter) {
-          if (!this.selectedPerwakilan) return [];
-          const items = this.data.filter(
-            (item) =>
-              item.nama_perwakilan === this.selectedPerwakilan &&
-              item.nama_parameter === nama_parameter
-          );
-          if (items.length === 0) return [];
-          const buktiList = [];
-          items.forEach((item) => {
-            for (let i = 1; i <= 5; i++) {
-              const key = `bukti_dukung_${i}`;
-              if (item[key]) {
-                // multiple links can be separated by commas
-                const links = item[key]
-                  .split(',')
-                  .map((link) => link.trim())
-                  .filter((link) => link);
-                links.forEach((link, index) => {
-                  buktiList.push({
-                    url: link,
-                    label: `${i}.${index + 1}`
-                  });
-                });
-              }
-            }
-          });
-          return buktiList;
-        },
-        sortTable(key) {
-          if (this.sortKey === key) {
-            this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
-          } else {
-            this.sortKey = key;
-            this.sortOrder = 'asc';
-          }
-        },
-        changePage(page) {
-          if (page < 1) return;
-          if (page > this.totalPages) return;
-          this.currentPage = page;
-        },
-        exportToCSV() {
-          const headers = ['Parameter Name', 'Kemlu Average'];
-          if (this.selectedPerwakilan) {
-            headers.push(`${this.selectedPerwakilan} Average`);
-          }
-          const allParams = Object.keys(this.rataKemluPerParameter);
-          const allRows = allParams.map((param) => {
-            const kemluVal = this.rataKemluPerParameter[param].toFixed(2);
-            const perwakilanVal = this.selectedPerwakilan
-              ? this.getAveragePerwakilan(param).toFixed(2)
-              : null;
-            return [param, kemluVal, this.selectedPerwakilan ? perwakilanVal : null]
-              .filter((v) => v !== null)
-              .join(',');
-          });
-          const csvContent = [headers.join(','), ...allRows].join('\n');
-          const blob = new Blob([csvContent], {
-            type: 'text/csv;charset=utf-8;'
-          });
-          const link = document.createElement('a');
-          const url = URL.createObjectURL(blob);
-          link.setAttribute('href', url);
-          link.setAttribute(
-            'download',
-            `kemlu-dashboard-export-${new Date().toISOString().split('T')[0]}.csv`
-          );
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        },
-        sortNewData(key) {
-          if (this.sortNewKey === key) {
-            this.sortNewOrder = this.sortNewOrder === 'asc' ? 'desc' : 'asc';
-          } else {
-            this.sortNewKey = key;
-            this.sortNewOrder = 'asc';
-          }
-        },
-        changeNewPage(page) {
-          if (page < 1) return;
-          if (page > this.totalNewPages) return;
-          this.currentNewPage = page;
-        },
-        exportNewDataToCSV() {
-          const headers = ['Nama', 'Status', 'Duplikasi'];
-          const rows = this.filteredNewData.map((item) => [
-            item.nama,
-            item.status,
-            item.duplikasi
-          ]);
-          const csvContent = [
-            headers.join(','),
-            ...rows.map((row) => row.join(','))
-          ].join('\n');
-          const blob = new Blob([csvContent], {
-            type: 'text/csv;charset=utf-8;'
-          });
-          const link = document.createElement('a');
-          const url = URL.createObjectURL(blob);
-          link.setAttribute('href', url);
-          link.setAttribute(
-            'download',
-            `perwakilan-status-export-${new Date().toISOString().split('T')[0]}.csv`
-          );
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        },
-        applyNewFilters() {
-          this.filteredNewData = this.newData.filter((item) => {
-            const matchesNama = this.searchNewNama
-              ? item.nama.toLowerCase().includes(this.searchNewNama.toLowerCase())
-              : true;
-            const matchesStatus = this.filterNewStatus
-              ? item.status === this.filterNewStatus
-              : true;
-            const matchesDuplikasi = this.filterNewDuplikasi
-              ? item.duplikasi === this.filterNewDuplikasi
-              : true;
-            return matchesNama && matchesStatus && matchesDuplikasi;
-          });
-          this.currentNewPage = 1;
-        },
-        updateDataManually() {
-          this.isManualUpdating = true;
-          Promise.all([this.fetchData(true), this.fetchNewData(true)]).finally(() => {
-            this.isManualUpdating = false;
-          });
-        },
-        // Build feed of the latest 5 satkers
-        buildLatestActivities() {
-          // For each nama_perwakilan, find the max timestamp
-          const grouping = {};
-          this.data.forEach((item) => {
-            const nama = item.nama_perwakilan;
-            const ts = new Date(item.timestamp).getTime();
-            if (!grouping[nama]) {
-              grouping[nama] = ts;
-            } else {
-              if (ts > grouping[nama]) {
-                grouping[nama] = ts;
-              }
-            }
-          });
-          // Transform to array and sort desc
-          const arr = Object.keys(grouping).map((nama) => ({
-            nama_perwakilan: nama,
-            timestamp: grouping[nama]
-          }));
-          arr.sort((a, b) => b.timestamp - a.timestamp);
-          // Keep top 5
-          const top5 = arr.slice(0, 5);
-          // Add unique ID for transitions
-          this.latestActivities = top5.map((x) => ({
-            id: x.nama_perwakilan + '_' + x.timestamp,
-            nama_perwakilan: x.nama_perwakilan,
-            timestamp: x.timestamp
-          }));
-        },
-        // Build Top Satkers table
-        buildTopSatkers() {
-          // Group by nama_perwakilan, compute average nilai_akhir, find earliest timestamp
-          const groups = {};
-          this.data.forEach((item) => {
-            const nama = item.nama_perwakilan;
-            const n = parseFloat(item.nilai_akhir);
-            const t = new Date(item.timestamp).getTime();
-            if (!groups[nama]) {
-              groups[nama] = {
-                total: 0,
-                count: 0,
-                earliestTimestamp: t
-              };
-            }
-            if (!isNaN(n)) {
-              groups[nama].total += n;
-              groups[nama].count += 1;
-            }
-            if (t < groups[nama].earliestTimestamp) {
-              groups[nama].earliestTimestamp = t;
-            }
-          });
+                    const parameterMap = this.data.reduce((acc, item) => {
+                        const param = item.nama_parameter;
+                        const nilai = parseFloat(item.nilai_akhir);
+                        if (!acc[param]) {
+                            acc[param] = {
+                                total: 0,
+                                count: 0
+                            };
+                        }
+                        if (!isNaN(nilai)) {
+                            acc[param].total += nilai;
+                            acc[param].count += 1;
+                        }
+                        return acc;
+                    }, {});
+                    this.rataKemluPerParameter = Object.keys(parameterMap).reduce(
+                        (acc, key) => {
+                            acc[key] = parameterMap[key].count ?
+                                parameterMap[key].total / parameterMap[key].count :
+                                0;
+                            return acc;
+                        }, {}
+                    );
+                    this.perwakilanList = [
+                        ...new Set(this.data.map((item) => item.nama_perwakilan))
+                    ].sort();
 
-          let arr = Object.keys(groups).map((nama) => ({
-            nama_perwakilan: nama,
-            average: groups[nama].count
-              ? groups[nama].total / groups[nama].count
-              : 0,
-            earliestTimestamp: groups[nama].earliestTimestamp
-          }));
+                    // Build the feed for latestActivities
+                    this.buildLatestActivities();
+                    // Build the top satkers table
+                    this.buildTopSatkers();
+                },
+                handleSearch() {
+                    this.showDropdown = true;
+                },
+                handleBlur(event) {
+                    const dropdownContainer = event.target.parentElement;
+                    const relatedTarget = event.relatedTarget;
+                    if (!relatedTarget || !dropdownContainer.contains(relatedTarget)) {
+                        setTimeout(() => {
+                            this.showDropdown = false;
+                        }, 200);
+                    }
+                },
+                selectPerwakilan(perwakilan) {
+                    if (this.selectedPerwakilan === perwakilan) {
+                        this.selectedPerwakilan = '';
+                        this.searchQuery = '';
+                        this.rataPerwakilan = 0;
+                        this.lastUpdatePerwakilan = null;
+                    } else {
+                        this.selectedPerwakilan = perwakilan;
+                        this.searchQuery = perwakilan;
+                        const filtered = this.data.filter(
+                            (item) => item.nama_perwakilan === this.selectedPerwakilan
+                        );
+                        const validScores = filtered.filter(
+                            (item) => !isNaN(parseFloat(item.nilai_akhir))
+                        );
+                        const total = validScores.reduce(
+                            (sum, item) => sum + parseFloat(item.nilai_akhir),
+                            0
+                        );
+                        this.rataPerwakilan = validScores.length ?
+                            total / validScores.length :
+                            0;
 
-          // Sort by average desc, then earliestTimestamp asc
-          arr.sort((a, b) => {
-            if (b.average !== a.average) {
-              return b.average - a.average; // desc
+                        const perwakilanItems = this.data.filter(
+                            (item) =>
+                            item.nama_perwakilan === this.selectedPerwakilan && item.timestamp
+                        );
+                        if (perwakilanItems.length) {
+                            this.lastUpdatePerwakilan = new Date(
+                                Math.max(
+                                    ...perwakilanItems.map((item) => new Date(item.timestamp))
+                                )
+                            );
+                        } else {
+                            this.lastUpdatePerwakilan = null;
+                        }
+                    }
+                    this.showDropdown = false;
+                },
+                getAverageKemlu(nama_parameter) {
+                    return this.rataKemluPerParameter[nama_parameter] || 0;
+                },
+                getAveragePerwakilan(nama_parameter) {
+                    if (!this.selectedPerwakilan) return 0;
+                    const filtered = this.data.filter(
+                        (item) =>
+                        item.nama_perwakilan === this.selectedPerwakilan &&
+                        item.nama_parameter === nama_parameter
+                    );
+                    if (filtered.length === 0) return 0;
+                    const validScores = filtered.filter(
+                        (item) => !isNaN(parseFloat(item.nilai_akhir))
+                    );
+                    if (validScores.length === 0) return 0;
+                    const total = validScores.reduce(
+                        (sum, item) => sum + parseFloat(item.nilai_akhir),
+                        0
+                    );
+                    return total / validScores.length;
+                },
+                getBuktiDukung(nama_parameter) {
+                    if (!this.selectedPerwakilan) return [];
+                    const items = this.data.filter(
+                        (item) =>
+                        item.nama_perwakilan === this.selectedPerwakilan &&
+                        item.nama_parameter === nama_parameter
+                    );
+                    if (items.length === 0) return [];
+                    const buktiList = [];
+                    items.forEach((item) => {
+                        for (let i = 1; i <= 5; i++) {
+                            const key = `bukti_dukung_${i}`;
+                            if (item[key]) {
+                                // multiple links can be separated by commas
+                                const links = item[key]
+                                    .split(',')
+                                    .map((link) => link.trim())
+                                    .filter((link) => link);
+                                links.forEach((link, index) => {
+                                    buktiList.push({
+                                        url: link,
+                                        label: `${i}.${index + 1}`
+                                    });
+                                });
+                            }
+                        }
+                    });
+                    return buktiList;
+                },
+                sortTable(key) {
+                    if (this.sortKey === key) {
+                        this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        this.sortKey = key;
+                        this.sortOrder = 'asc';
+                    }
+                },
+                changePage(page) {
+                    if (page < 1) return;
+                    if (page > this.totalPages) return;
+                    this.currentPage = page;
+                },
+                exportToCSV() {
+                    const headers = ['Parameter Name', 'Kemlu Average'];
+                    if (this.selectedPerwakilan) {
+                        headers.push(`${this.selectedPerwakilan} Average`);
+                    }
+                    const allParams = Object.keys(this.rataKemluPerParameter);
+                    const allRows = allParams.map((param) => {
+                        const kemluVal = this.rataKemluPerParameter[param].toFixed(2);
+                        const perwakilanVal = this.selectedPerwakilan ?
+                            this.getAveragePerwakilan(param).toFixed(2) :
+                            null;
+                        return [param, kemluVal, this.selectedPerwakilan ? perwakilanVal : null]
+                            .filter((v) => v !== null)
+                            .join(',');
+                    });
+                    const csvContent = [headers.join(','), ...allRows].join('\n');
+                    const blob = new Blob([csvContent], {
+                        type: 'text/csv;charset=utf-8;'
+                    });
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute('href', url);
+                    link.setAttribute(
+                        'download',
+                        `kemlu-dashboard-export-${new Date().toISOString().split('T')[0]}.csv`
+                    );
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                sortNewData(key) {
+                    if (this.sortNewKey === key) {
+                        this.sortNewOrder = this.sortNewOrder === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        this.sortNewKey = key;
+                        this.sortNewOrder = 'asc';
+                    }
+                },
+                changeNewPage(page) {
+                    if (page < 1) return;
+                    if (page > this.totalNewPages) return;
+                    this.currentNewPage = page;
+                },
+                exportNewDataToCSV() {
+                    const headers = ['Nama', 'Status', 'Duplikasi'];
+                    const rows = this.filteredNewData.map((item) => [
+                        item.nama,
+                        item.status,
+                        item.duplikasi
+                    ]);
+                    const csvContent = [
+                        headers.join(','),
+                        ...rows.map((row) => row.join(','))
+                    ].join('\n');
+                    const blob = new Blob([csvContent], {
+                        type: 'text/csv;charset=utf-8;'
+                    });
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute('href', url);
+                    link.setAttribute(
+                        'download',
+                        `perwakilan-status-export-${new Date().toISOString().split('T')[0]}.csv`
+                    );
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                applyNewFilters() {
+                    this.filteredNewData = this.newData.filter((item) => {
+                        const matchesNama = this.searchNewNama ?
+                            item.nama.toLowerCase().includes(this.searchNewNama.toLowerCase()) :
+                            true;
+                        const matchesStatus = this.filterNewStatus ?
+                            item.status === this.filterNewStatus :
+                            true;
+                        const matchesDuplikasi = this.filterNewDuplikasi ?
+                            item.duplikasi === this.filterNewDuplikasi :
+                            true;
+                        return matchesNama && matchesStatus && matchesDuplikasi;
+                    });
+                    this.currentNewPage = 1;
+                },
+                updateDataManually() {
+                    this.isManualUpdating = true;
+                    Promise.all([this.fetchData(true), this.fetchNewData(true)]).finally(() => {
+                        this.isManualUpdating = false;
+                    });
+                },
+                // Build feed of the latest 5 satkers
+                buildLatestActivities() {
+                    // For each nama_perwakilan, find the max timestamp
+                    const grouping = {};
+                    this.data.forEach((item) => {
+                        const nama = item.nama_perwakilan;
+                        const ts = new Date(item.timestamp).getTime();
+                        if (!grouping[nama]) {
+                            grouping[nama] = ts;
+                        } else {
+                            if (ts > grouping[nama]) {
+                                grouping[nama] = ts;
+                            }
+                        }
+                    });
+                    // Transform to array and sort desc
+                    const arr = Object.keys(grouping).map((nama) => ({
+                        nama_perwakilan: nama,
+                        timestamp: grouping[nama]
+                    }));
+                    arr.sort((a, b) => b.timestamp - a.timestamp);
+                    // Keep top 5
+                    const top5 = arr.slice(0, 4);
+                    // Add unique ID for transitions
+                    this.latestActivities = top5.map((x) => ({
+                        id: x.nama_perwakilan + '_' + x.timestamp,
+                        nama_perwakilan: x.nama_perwakilan,
+                        timestamp: x.timestamp
+                    }));
+                },
+                // Build Top Satkers table
+                buildTopSatkers() {
+                    // Group by nama_perwakilan, compute average nilai_akhir, find earliest timestamp
+                    const groups = {};
+                    this.data.forEach((item) => {
+                        const nama = item.nama_perwakilan;
+                        const n = parseFloat(item.nilai_akhir);
+                        const t = new Date(item.timestamp).getTime();
+                        if (!groups[nama]) {
+                            groups[nama] = {
+                                total: 0,
+                                count: 0,
+                                earliestTimestamp: t
+                            };
+                        }
+                        if (!isNaN(n)) {
+                            groups[nama].total += n;
+                            groups[nama].count += 1;
+                        }
+                        if (t < groups[nama].earliestTimestamp) {
+                            groups[nama].earliestTimestamp = t;
+                        }
+                    });
+
+                    let arr = Object.keys(groups).map((nama) => ({
+                        nama_perwakilan: nama,
+                        average: groups[nama].count ?
+                            groups[nama].total / groups[nama].count : 0,
+                        earliestTimestamp: groups[nama].earliestTimestamp
+                    }));
+
+                    // Sort by average desc, then earliestTimestamp asc
+                    arr.sort((a, b) => {
+                        if (b.average !== a.average) {
+                            return b.average - a.average; // desc
+                        }
+                        return a.earliestTimestamp - b.earliestTimestamp; // asc
+                    });
+                    // Keep top 10
+                    arr = arr.slice(0, 10);
+                    this.topSatkers = arr;
+                    this.topSatkersCurrentPage = 1;
+                },
+                changeTopSatkersPage(page) {
+                    if (page < 1) return;
+                    if (page > this.topSatkersTotalPages) return;
+                    this.topSatkersCurrentPage = page;
+                }
+            },
+            mounted() {
+                this.fetchAllData();
+                this.applyNewFilters();
+
+                // Auto-poll every 2 minutes
+                setInterval(() => {
+                    this.autoPolling = true;
+                    Promise.all([this.fetchData(true), this.fetchNewData(true)]).finally(() => {
+                        this.autoPolling = false;
+                    });
+                }, 120000);
             }
-            return a.earliestTimestamp - b.earliestTimestamp; // asc
-          });
-          // Keep top 10
-          arr = arr.slice(0, 10);
-          this.topSatkers = arr;
-          this.topSatkersCurrentPage = 1;
-        },
-        changeTopSatkersPage(page) {
-          if (page < 1) return;
-          if (page > this.topSatkersTotalPages) return;
-          this.topSatkersCurrentPage = page;
-        }
-      },
-      mounted() {
-        this.fetchAllData();
-        this.applyNewFilters();
+        });
 
-        // Auto-poll every 2 minutes
-        setInterval(() => {
-          this.autoPolling = true;
-          Promise.all([this.fetchData(true), this.fetchNewData(true)]).finally(() => {
-            this.autoPolling = false;
-          });
-        }, 120000);
-      }
-    });
-
-    app.mount('#app');
-  </script>
+        app.mount('#app');
+    </script>
 </body>
+
 </html>
