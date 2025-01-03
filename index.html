@@ -427,7 +427,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="mt-4">
+                                    <div class="animate-pulse animate-infinite mt-4">
                                         <p class="text-4xl font-bold text-green-600">
                                             {{ rataPerwakilan . toFixed(2) }}
                                         </p>
@@ -1684,7 +1684,7 @@
                     }));
                     arr.sort((a, b) => b.timestamp - a.timestamp);
                     // Keep top 5
-                    const top5 = arr.slice(0, 4);
+                    const top5 = arr.slice(0, 5);
                     // Add unique ID for transitions
                     this.latestActivities = top5.map((x) => ({
                         id: x.nama_perwakilan + '_' + x.timestamp,
