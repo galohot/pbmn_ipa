@@ -504,10 +504,10 @@
                                 <div class="mb-4">
                                     <h2 class="text-lg font-semibold text-gray-900">Top Satkers</h2>
                                     <p class="mt-1 text-sm text-gray-500">
-                                        Satker diurutkan berdasarkan Nilai Tertinggi lalu penginputan lebih awal
+                                        Satker diurutkan berdasarkan Nilai Tertinggi
                                     </p>
                                     <p class="text-sm text-gray-500">
-                                        Highest Average IPA (max 10)
+                                        Highest Average IPA
                                     </p>
                                 </div>
 
@@ -1179,7 +1179,7 @@
                     latestActivities: [],
                     topSatkers: [],
                     topSatkersCurrentPage: 1,
-                    topSatkersPerPage: 5
+                    topSatkersPerPage: 10
                 };
             },
             computed: {
@@ -1675,7 +1675,7 @@
                         return a.earliestTimestamp - b.earliestTimestamp; // asc
                     });
                     // Keep top 10
-                    arr = arr.slice(0, 10);
+                    arr = arr.slice(0, 20);
                     this.topSatkers = arr;
                     this.topSatkersCurrentPage = 1;
                 },
