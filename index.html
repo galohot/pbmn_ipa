@@ -1235,7 +1235,7 @@
                     latestActivities: [],
                     topSatkers: [],
                     topSatkersCurrentPage: 1,
-                    topSatkersPerPage: 5
+                    topSatkersPerPage: 10
                 };
             },
             computed: {
@@ -1731,7 +1731,7 @@
                         return a.earliestTimestamp - b.earliestTimestamp; // asc
                     });
                     // Keep top 10
-                    arr = arr.slice(0, 10);
+                    arr = arr.slice(0, 20);
                     this.topSatkers = arr;
                     this.topSatkersCurrentPage = 1;
                 },
